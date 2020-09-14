@@ -20,7 +20,6 @@ nc_data <- nc_open('states.nc')
 primf.array <- ncvar_get(nc_data, "primf") # store the data in a 3-dimensional array
 dim(primf.array) 
 
-
 #All done reading in the data. We can close the netCDF file.
 
 nc_close(nc_data) 
