@@ -1,7 +1,7 @@
 #############################################
-# title: "LUH2 data in GIS format"
-# author: "Tainá Rocha"
-# status: in progress
+## Title: "LUH2 data in GIS format"
+## Author: "Tainá Rocha"
+## Status: in progress
 #############################################
 
 # LUH2_Data
