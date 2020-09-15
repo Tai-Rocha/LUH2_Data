@@ -9,16 +9,22 @@ library(raster)
 library(rgdal)
 library(ncdf4)
 
-# Open NetCDF
+########################################################################################
+#Primf states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
 states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
-# Get the coordinate reference system (CRS) to use for raster
+#2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
 head(epsg) # search for epsg 4326 and put below
 crs_object <-"+proj=longlat +datum=WGS84" #object of crs
 
-### Object prepare for loops of primf state
+
+#3 Object prepare for loops of primf state
 pf <- states_45_SSP2$var[[1]]  ## Take primf variable
+pf$name # Certificating that is a primnf variable
 pf_size <- pf$varsize ## There should be 1440 lons, 720 lats, and 86 times
 pf_dims <- pf$ndims ## 3 dimensions Long, Lat and time
 pf_v <- pf_size[pf_dims]  ## Length of time dimension (for loop for)
@@ -26,7 +32,7 @@ lat <- states_45_SSP2$dim$latitude$vals   # latitude position
 lon <- states_45_SSP2$dim$longitude$vals  # longitude position
 primf<-list() # primf variable list
 
-## Loop to get 2015 to 2100 raster of primf 
+#4 Loop to get 2015 to 2100 raster of primf 
 for (i in 1:pf_v) {
   start <- rep(1,pf_dims)  # begin with start=(1,1,...,1)
   start[pf_dims] <- i      # change to start=(1,1,...,i) to read timestep i
@@ -35,30 +41,692 @@ for (i in 1:pf_v) {
   
   primf_var <-ncvar_get(states_45_SSP2, varid = 'primf', start = start, count = count)
   
-  # convert to raster
+#5 convert to raster
   primf[i]<-raster(primf_var)
 }
 
 ###### End of Loop
 
-## Create layer stack with time dimension
+#6 Create layer stack with time dimension
 primf<-stack(primf)
 
-# TUrban_2015_2100_SSP2_45ranspose the raster to have correct orientation
+#7 Transpose the raster to have correct orientation
 primf_final<-t(primf)
 
 
-# Set the coordinate reference system (CRS) and extent
-
+#8 Set the coordinate reference system (CRS) and extent
 crs(primf_final) <- crs_object # set crs of raster stack
 extent(primf_final) <- c(-180,180, -90,90) # set extent
 
-# plot the result
+#9 plot the result
 spplot(primf_final)
 
-### Write and save rasters
+#10 Write and save rasters
+writeRaster(primf_final, "CMPI6_Land_Use_Harmonization_primf.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
-writeRaster(primf_final, "CMPI6_Land_Use_Harmonization_primf.tif", "GTiff", bylayer= T, suffix ="names", overwrite=TRUE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+#### From now one I repeat  these 11 stpes. I alaways clean the environment after finshed each states. 
 
 ########################################################################################
+# Primn states...  Describe the state.....
+########################################################################################
 
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of primn state
+pn <- states_45_SSP2$var[[2]]  ## Take primn variable
+pn$name # Certificating that is a primn variable 
+pn_size <- pn$varsize ## There should be 1440 lons, 720 lats, and 86 times
+pn_dims <- pn$ndims ## 3 dimensions Long, Lat and time
+pn_v <- pn_size[pn_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+primn<-list() # primn variable list
+
+#4 Loop to get 2015 to 2100 raster of primn 
+for (i in 1:pn_v) {
+  start <- rep(1,pn_dims)  # begin with start=(1,1,...,1)
+  start[pn_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- pn_size         # begin with count=(nx,ny,...,pn_v), reads entire var
+  count[pn_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  primn_var <-ncvar_get(states_45_SSP2, varid = 'primn', start = start, count = count)
+  
+#5 convert to raster
+  primn[i]<-raster(primn_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+primn<-stack(primn)
+
+#7 Transpose the raster to have correct orientation
+primn_final<-t(primn)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(primn_final) <- crs_object # set crs of raster stack
+extent(primn_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(primn_final)
+
+#10 Write and save rasters
+writeRaster(primn_final, "CMPI6_Land_Use_Harmonization_primn.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+
+########################################################################################
+# Secdf states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of secdf state
+sf <- states_45_SSP2$var[[3]]  ## Take secdf variable
+sf$name # Certificating that is a secdf variable 
+sf_size <- sf$varsize ## There should be 1440 lons, 720 lats, and 86 times
+sf_dims <- sf$ndims ## 3 dimensions Long, Lat and time
+sf_v <- sf_size[sf_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+secdf<-list() # secdf variable list
+
+#4 Loop to get 2015 to 2100 raster of secdf 
+for (i in 1:sf_v) {
+  start <- rep(1,sf_dims)  # begin with start=(1,1,...,1)
+  start[sf_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- sf_size         # begin with count=(nx,ny,...,sf_v), reads entire var
+  count[sf_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  secdf_var <-ncvar_get(states_45_SSP2, varid = 'secdf', start = start, count = count)
+  
+#5 convert to raster
+  secdf[i]<-raster(secdf_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+secdf<-stack(secdf)
+
+#7 Transpose the raster to have correct orientation
+secdf_final<-t(secdf)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(secdf_final) <- crs_object # set crs of raster stack
+extent(secdf_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(secdf_final)
+
+#10 Write and save rasters
+writeRaster(secdf_final, "CMPI6_Land_Use_Harmonization_secdf.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+
+
+########################################################################################
+# Secdn states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of secdn state
+sn <- states_45_SSP2$var[[4]]  ## Take secdn variable
+sn$name # Certificating that is a secdn variable 
+sn_size <- sn$varsize ## There should be 1440 lons, 720 lats, and 86 times
+sn_dims <- sn$ndims ## 3 dimensions Long, Lat and time
+sn_v <- sn_size[sn_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+secdn<-list() # secdn variable list
+
+#4 Loop to get 2015 to 2100 raster of secdn 
+for (i in 1:sn_v) {
+  start <- rep(1,sn_dims)  # begin with start=(1,1,...,1)
+  start[sn_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- sn_size         # begin with count=(nx,ny,...,sn_v), reads entire var
+  count[sn_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  secdn_var <-ncvar_get(states_45_SSP2, varid = 'secdn', start = start, count = count)
+  
+#5 convert to raster
+  secdn[i]<-raster(secdn_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+secdn<-stack(secdn)
+
+#7 Transpose the raster to have correct orientation
+secdn_final<-t(secdn)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(secdn_final) <- crs_object # set crs of raster stack
+extent(secdn_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(secdn_final)
+
+#10 Write and save rasters
+writeRaster(secdn_final, "CMPI6_Land_Use_Harmonization_secdn.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+
+########################################################################################
+# Urban states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of urban state
+ub <- states_45_SSP2$var[[5]]  ## Take urban variable
+ub$name # Certificating that is a urban variable 
+ub_size <- ub$varsize ## There should be 1440 lons, 720 lats, and 86 times
+ub_dims <- ub$ndims ## 3 dimensions Long, Lat and time
+ub_v <- ub_size[ub_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+urban<-list() # urban variable list
+
+#4 Loop to get 2015 to 2100 raster of urban 
+for (i in 1:ub_v) {
+  start <- rep(1,ub_dims)  # begin with start=(1,1,...,1)
+  start[ub_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- ub_size         # begin with count=(nx,ny,...,ub_v), reads entire var
+  count[ub_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  urban_var <-ncvar_get(states_45_SSP2, varid = 'urban', start = start, count = count)
+  
+#5 convert to raster
+  urban[i]<-raster(urban_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+urban<-stack(urban)
+
+#7 Transpose the raster to have correct orientation
+urban_final<-t(urban)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(urban_final) <- crs_object # set crs of raster stack
+extent(urban_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(urban_final)
+
+#10 Write and save rasters
+writeRaster(urban_final, "CMPI6_Land_Use_Harmonization_urban.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+
+########################################################################################
+# C3ann states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of c3ann state
+c3a <- states_45_SSP2$var[[6]]  ## Take c3ann variable
+c3a$name # Certificating that is a c3ann variable 
+c3a_size <- c3a$varsize ## There should be 1440 lons, 720 lats, and 86 times
+c3a_dims <- c3a$ndims ## 3 dimensions Long, Lat and time
+c3a_v <- c3a_size[c3a_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+c3ann<-list() # c3ann variable list
+
+#4 Loop to get 2015 to 2100 raster of c3ann 
+for (i in 1:c3a_v) {
+  start <- rep(1,c3a_dims)  # begin with start=(1,1,...,1)
+  start[c3a_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- c3a_size         # begin with count=(nx,ny,...,c3a_v), reads entire var
+  count[c3a_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  c3ann_var <-ncvar_get(states_45_SSP2, varid = 'c3ann', start = start, count = count)
+  
+#5 convert to raster
+  c3ann[i]<-raster(c3ann_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+c3ann<-stack(c3ann)
+
+#7 Transpose the raster to have correct orientation
+c3ann_final<-t(c3ann)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(c3ann_final) <- crs_object # set crs of raster stack
+extent(c3ann_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(c3ann_final)
+
+#10 Write and save rasters
+writeRaster(c3ann_final, "CMPI6_Land_Use_Harmonization_c3ann.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+
+########################################################################################
+# C4ann states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of c4ann state
+c4a <- states_45_SSP2$var[[7]]  ## Take c4ann variable
+c4a$name # Certificating that is a c4ann variable 
+c4a_size <- c4a$varsize ## There should be 1440 lons, 720 lats, and 86 times
+c4a_dims <- c4a$ndims ## 3 dimensions Long, Lat and time
+c4a_v <- c4a_size[c4a_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+c4ann<-list() # c4ann variable list
+
+#4 Loop to get 2015 to 2100 raster of c4ann 
+for (i in 1:c4a_v) {
+  start <- rep(1,c4a_dims)  # begin with start=(1,1,...,1)
+  start[c4a_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- c4a_size         # begin with count=(nx,ny,...,c4a_v), reads entire var
+  count[c4a_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  c4ann_var <-ncvar_get(states_45_SSP2, varid = 'c4ann', start = start, count = count)
+  
+#5 convert to raster
+  c4ann[i]<-raster(c4ann_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+c4ann<-stack(c4ann)
+
+#7 Transpose the raster to have correct orientation
+c4ann_final<-t(c4ann)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(c4ann_final) <- crs_object # set crs of raster stack
+extent(c4ann_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(c4ann_final)
+
+#10 Write and save rasters
+writeRaster(c4ann_final, "CMPI6_Land_Use_Harmonization_c4ann.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+
+########################################################################################
+# C3per states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of c3per state
+c3p <- states_45_SSP2$var[[8]]  ## Take c3per variable
+c3p$name # Certificating that is a c3per variable 
+c3p_size <- c3p$varsize ## There should be 1440 lons, 720 lats, and 86 times
+c3p_dims <- c3p$ndims ## 3 dimensions Long, Lat and time
+c3p_v <- c3p_size[c3p_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+c3per<-list() # c3per variable list
+
+#4 Loop to get 2015 to 2100 raster of c3per 
+for (i in 1:c3p_v) {
+  start <- rep(1,c3p_dims)  # begin with start=(1,1,...,1)
+  start[c3p_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- c3p_size         # begin with count=(nx,ny,...,c3p_v), reads entire var
+  count[c3p_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  c3per_var <-ncvar_get(states_45_SSP2, varid = 'c3per', start = start, count = count)
+  
+#5 convert to raster
+  c3per[i]<-raster(c3per_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+c3per<-stack(c3per)
+
+#7 Transpose the raster to have correct orientation
+c3per_final<-t(c3per)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(c3per_final) <- crs_object # set crs of raster stack
+extent(c3per_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(c3per_final)
+
+#10 Write and save rasters
+writeRaster(c3per_final, "CMPI6_Land_Use_Harmonization_c3per.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+
+########################################################################################
+# C4per states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of c4per state
+c4p <- states_45_SSP2$var[[9]]  ## Take c4per variable
+c4p$name # Certificating that is a c4per variable 
+c4p_size <- c4p$varsize ## There should be 1440 lons, 720 lats, and 86 times
+c4p_dims <- c4p$ndims ## 3 dimensions Long, Lat and time
+c4p_v <- c4p_size[c4p_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+c4per<-list() # c4per variable list
+
+#4 Loop to get 2015 to 2100 raster of c4per 
+for (i in 1:c4p_v) {
+  start <- rep(1,c4p_dims)  # begin with start=(1,1,...,1)
+  start[c4p_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- c4p_size         # begin with count=(nx,ny,...,c4p_v), reads entire var
+  count[c4p_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  c4per_var <-ncvar_get(states_45_SSP2, varid = 'c4per', start = start, count = count)
+  
+#5 convert to raster
+  c4per[i]<-raster(c4per_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+c4per<-stack(c4per)
+
+#7 Transpose the raster to have correct orientation
+c4per_final<-t(c4per)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(c4per_final) <- crs_object # set crs of raster stack
+extent(c4per_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(c4per_final)
+
+#10 Write and save rasters
+writeRaster(c4per_final, "CMPI6_Land_Use_Harmonization_c4per.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+########################################################################################
+# C3nfx states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of c3nfx state
+c3n <- states_45_SSP2$var[[10]]  ## Take c3nfx variable
+c3n$name # Certificating that is a c3nfx variable 
+c3n_size <- c3n$varsize ## There should be 1440 lons, 720 lats, and 86 times
+c3n_dims <- c3n$ndims ## 3 dimensions Long, Lat and time
+c3n_v <- c3n_size[c3n_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+c3nfx<-list() # c3nfx variable list
+
+#4 Loop to get 2015 to 2100 raster of c3nfx 
+for (i in 1:c3n_v) {
+  start <- rep(1,c3n_dims)  # begin with start=(1,1,...,1)
+  start[c3n_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- c3n_size         # begin with count=(nx,ny,...,c3n_v), reads entire var
+  count[c3n_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  c3nfx_var <-ncvar_get(states_45_SSP2, varid = 'c3nfx', start = start, count = count)
+  
+#5 convert to raster
+  c3nfx[i]<-raster(c3nfx_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+c3nfx<-stack(c3nfx)
+
+#7 Transpose the raster to have correct orientation
+c3nfx_final<-t(c3nfx)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(c3nfx_final) <- crs_object # set crs of raster stack
+extent(c3nfx_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(c3nfx_final)
+
+#10 Write and save rasters
+writeRaster(c3nfx_final, "CMPI6_Land_Use_Harmonization_c3nfx.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+########################################################################################
+# Pastr states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prepare for loops of pastr state
+pa <- states_45_SSP2$var[[11]]  ## Take pastr variable
+pa$name # Certificating that is a pastr variable 
+pa_size <- pa$varsize ## There should be 1440 lons, 720 lats, and 86 times
+pa_dims <- pa$ndims ## 3 dimensions Long, Lat and time
+pa_v <- pa_size[pa_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+pastr<-list() # pastr variable list
+
+#4 Loop to get 2015 to 2100 raster of pastr 
+for (i in 1:pa_v) {
+  start <- rep(1,pa_dims)  # begin with start=(1,1,...,1)
+  start[pa_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- pa_size         # begin with count=(nx,ny,...,pa_v), reads entire var
+  count[pa_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  pastr_var <-ncvar_get(states_45_SSP2, varid = 'pastr', start = start, count = count)
+  
+#5 convert to raster
+  pastr[i]<-raster(pastr_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+pastr<-stack(pastr)
+
+#7 Transpose the raster to have correct orientation
+pastr_final<-t(pastr)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(pastr_final) <- crs_object # set crs of raster stack
+extent(pastr_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(pastr_final)
+
+#10 Write and save rasters
+writeRaster(pastr_final, "CMPI6_Land_Use_Harmonization_pastr.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+
+########################################################################################
+# Range states...  Describe the state.....
+########################################################################################
+
+#1 Open NetCDF
+states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+
+#2 Get the coordinate reference system (CRS) to use for raster
+epsg <- make_EPSG() # call the list of epsg
+head(epsg) # search for epsg 4326 and put below
+crs_object <-"+proj=longlat +datum=WGS84" #object of crs
+
+#3 Object prerare for loops of range state
+ra <- states_45_SSP2$var[[12]]  ## Take range variable
+ra$name # Certificating that is a range variable 
+ra_size <- ra$varsize ## There should be 1440 lons, 720 lats, and 86 times
+ra_dims <- ra$ndims ## 3 dimensions Long, Lat and time
+ra_v <- ra_size[ra_dims]  ## Length of time dimension (for loop for)
+lat <- states_45_SSP2$dim$latitude$vals   # latitude position
+lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+range<-list() # range variable list
+
+#4 Loop to get 2015 to 2100 raster of range 
+for (i in 1:ra_v) {
+  start <- rep(1,ra_dims)  # begin with start=(1,1,...,1)
+  start[ra_dims] <- i      # change to start=(1,1,...,i) to read timestep i
+  count <- ra_size         # begin with count=(nx,ny,...,ra_v), reads entire var
+  count[ra_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
+  
+  range_var <-ncvar_get(states_45_SSP2, varid = 'range', start = start, count = count)
+  
+#5 convert to raster
+  range[i]<-raster(range_var)
+}
+
+###### End of Loop
+
+#6 Create layer stack with time dimension
+range<-stack(range)
+
+#7 Transpose the raster to have correct orientation
+range_final<-t(range)
+
+#8 Set the coordinate reference system (CRS) and extent
+crs(range_final) <- crs_object # set crs of raster stack
+extent(range_final) <- c(-180,180, -90,90) # set extent
+
+#9 plot the result
+spplot(range_final)
+
+#10 Write and save rasters
+writeRaster(range_final, "CMPI6_Land_Use_Harmonization_range.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#11 Clean environment and plots
+rm(list=ls()) ## list all environment objects and remove
+
+dev.off(dev.list()["RStudioGD"]) ## remove all plots
+
+################################# END #####################################################################

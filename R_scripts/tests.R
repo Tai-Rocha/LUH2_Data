@@ -114,19 +114,18 @@ for (i in seq_along(nt)) {
 }
 
 # create layer stack with time dimension
-#pf<-stack(pf)
-#plot(pf)
-pn <- stack(pn)
-sf <- stack(sf)
-sn <- stack(sn)
-ub <- stack(ub)
-c3a <- stack(c3a)
-c4a <- stack(c4a)
-c3p <- stack(c3p)
-c4p <- stack(c4p)
-c3n <- stack(c3n)
-pat <- stack(pat)
-ran <- stack(ran)
+1-pf<-stack(pf)
+2-pn <- stack(pn)
+3-sf <- stack(sf)
+4-sn <- stack(sn)
+5-ub <- stack(ub)
+6-c3a <- stack(c3a)
+7-c4a <- stack(c4a)
+8-c3p <- stack(c3p)
+9-c4p <- stack(c4p)
+10-c3n <- stack(c3n)
+11-pa <- stack(pa)
+12-ra <- stack(ra)
 
 # transpose the raster to have correct orientation
 pf<-t(pf)
