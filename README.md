@@ -1,6 +1,6 @@
 ```mermaid
 graph LR
-A[<font size=3>LUH2_netCDF] --> B[<font size=3>primf.tif]
+A(<font size=3>LUH2_netCDF) --> B[<font size=3>primf.tif]
     A --> C[<font size=3>primn.tif]
     A --> D[<font size=3>secdf.tif]
     A --> E[<font size=3>secdn.tif]
