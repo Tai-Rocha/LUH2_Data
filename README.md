@@ -36,5 +36,3 @@ A[LUH2_netCDF] --> B[primf.tif]
     N --> O[LULC.tif]
 ```
 
-
-helo word
