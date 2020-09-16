@@ -30,7 +30,6 @@ A(<font size=3>LUH2_netCDF) --> B[<font size=3>primf.tif]
 
 ```mermaid
 graph TB
-A(Start)-->O(Stop)
 A(<font size=3>LUH2_netCDF) --> B[<font size=3>primf.tif]
     A --> C[<font size=3>primn.tif]
     A --> D[<font size=3>secdf.tif]
