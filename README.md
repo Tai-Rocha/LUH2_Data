@@ -1,13 +1,3 @@
-
-
-#### LUH2 data compilation and conversion in GIS format
-##### Here we trabforme and convertion.....
-
-Raw data available at:  https://luh.umd.edu/data.shtml
-
-
-## h2
-
 ```mermaid
 graph LR
 A[LUH2_netCDF] --> B[primf.tif]
@@ -35,4 +25,3 @@ A[LUH2_netCDF] --> B[primf.tif]
     M --> O[LULC.tif]
     N --> O[LULC.tif]
 ```
-
