@@ -1,45 +1,56 @@
+
+
+#### LUH2 data compilation and conversion in GIS format
+##### Here we trabforme and convertion.....
+
+Raw data available at:  https://luh.umd.edu/data.shtml
+
+
+
+
+
+User flows
 ---
-title: 'Project documentation template'
-disqus: hackmd
----
-
-Project Title
-===
-![downloads](https://img.shields.io/github/downloads/atom/atom/total.svg)
-![build](https://img.shields.io/appveyor/ci/:user/:repo.svg)
-![chat](https://img.shields.io/discord/:serverId.svg)
-
-## Table of Contents
-
-[TOC]
-
-## Beginners Guide
-
-If you are a total beginner to this, start here!
-
-1. Visit hackmd.io
-2. Click "Sign in"
-3. Choose a way to sign in
-4. Start writing note!
-
-User story
----
-
-```gherkin=
-Feature: Guess the word
-
-  # The first example has two steps
-  Scenario: Maker starts a game
-    When the Maker starts a game
-    Then the Maker waits for a Breaker to join
-
-  # The second example has three steps
-  Scenario: Breaker joins a game
-    Given the Maker has started a game with the word "silky"
-    When the Breaker joins the Maker's game
-    Then the Breaker must guess a word with 5 characters
+```sequence
+Alice->Bob: Hello Bob, how are you?
+Note right of Bob: Bob thinks
+Bob-->Alice: I am good thanks!
+Note left of Alice: Alice responds
+Alice->Bob: Where have you been?
 ```
-> I choose a lazy person to do a hard job. Because a lazy person will find an easy way to do it. [name=Bill Gates]
+
+## h2
+
+```mermaid
+graph LR
+A[LUH2_netCDF] --> B[primf.tif]
+    A --> C[primn.tif]
+    A --> D[secdf.tif]
+    A --> E[secdn.tif]
+    A --> F[c3ann.tif]
+    A --> G[c4ann.tif]
+    A --> H[c3per.tif]
+    A --> I[c4per.tif]
+    A --> J[c3nfx.tif]
+    A --> L[urban.tif]
+    A --> M[pastr.tif]
+    A --> N[range.tif]
+    B --> O[LULC.tif]
+    C --> O[LULC.tif]
+    D --> O[LULC.tif]
+    E --> O[LULC.tif]
+    F --> O[LULC.tif]
+    G --> O[LULC.tif]
+    H --> O[LULC.tif]
+    I --> O[LULC.tif]
+    J --> O[LULC.tif]
+    L --> O[LULC.tif]
+    M --> O[LULC.tif]
+    N --> O[LULC.tif]
+```
+
+
+
 
 
 ```gherkin=
