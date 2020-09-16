@@ -31,8 +31,8 @@ A(<font size=3>LUH2_netCDF) --> B[<font size=3>primf.tif]
 ```mermaid
 graph TB
 A(Start)-->O(Stop)
-    style A fill:#f9f,stroke:#333,stroke-width:2px;
-    style O fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
+    style A fill:#f9f,stroke:#333,stroke-width:1px;
+    style O fill:#ccf,stroke:#f66,stroke-width:1px,stroke-dasharray: 3, 3
 A(<font size=3>LUH2_netCDF) --> B[<font size=3>primf.tif]
     A --> C[<font size=3>primn.tif]
     A --> D[<font size=3>secdf.tif]
