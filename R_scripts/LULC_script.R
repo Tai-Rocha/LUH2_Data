@@ -10,3 +10,5 @@ all <- stack(lista_luh2)
 
 r <- which.max(all)
 writeRaster(r, "./Results/test_LULC_2100.tif")
+
+##

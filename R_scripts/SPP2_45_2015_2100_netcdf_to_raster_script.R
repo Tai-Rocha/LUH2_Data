@@ -9,20 +9,116 @@ library(raster)
 library(rgdal)
 library(ncdf4)
 
-########################################################################################
-#Primf states...  Describe the state.....
-########################################################################################
 
 #1 Open NetCDF
 states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp245-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
-#2 Get the coordinate reference system (CRS) to use for raster
+#2 Create directory per year  
+
+#2.1 Create a folder names 
+subfolder_names <- c("CMIP6_Land_Use_Harmonization_SSP2_45_2015",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2016",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2017",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2018",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2019",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2020",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2021",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2022",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2023",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2024",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2025",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2026",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2027",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2028",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2029",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2030",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2031",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2032",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2033",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2034",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2035",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2036",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2037",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2038",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2039",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2040",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2041",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2042",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2043",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2044",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2045",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2046",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2047",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2048",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2049",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2050",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2051",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2052",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2053",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2054",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2055",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2056",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2057",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2058",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2059",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2060",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2061",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2062",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2063",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2064",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2065",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2066",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2067",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2068",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2069",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2070",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2071",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2072",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2073",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2074",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2075",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2076",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2077",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2078",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2079",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2080",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2081",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2082",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2083",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2084",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2085",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2086",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2087",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2088",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2089",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2090",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2091",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2092",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2093",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2094",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2095",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2096",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2097",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2098",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2099",
+                     "CMIP6_Land_Use_Harmonization_SSP2_45_2100")
+
+#2.2 Loop to crate a these folders in singles folder 
+
+for (j in 1: length(subfolder_names)){
+  dir.create(paste0("/home/taina/Documentos/LUH2_Data/Results/SSP2_45_2015_2100/",subfolder_names[j]))
+}
+
+#3 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
 head(epsg) # search for epsg 4326 and put below
 crs_object <-"+proj=longlat +datum=WGS84" #object of crs
 
+########################################################################################
+#Primf states...  Describe the state.....
+########################################################################################
 
-#3 Object prepare for loops of primf state
+# Object prepare for loops of primf state
 pf <- states_45_SSP2$var[[1]]  ## Take primf variable
 pf$name # Certificating that is a primnf variable
 pf_size <- pf$varsize ## There should be 1440 lons, 720 lats, and 86 times
@@ -61,10 +157,48 @@ extent(primf_final) <- c(-180,180, -90,90) # set extent
 #9 plot the result
 spplot(primf_final)
 
-#10 Write and save rasters
-writeRaster(primf_final, "CMPI6_Land_Use_Harmonization_primf.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+#10 Write and save rasters in a year folders 
+#2.3 List the subfolders
 
 
+for (a in nlayers(primf_final)){
+  pf_unst<- unstack(primf_final[a])
+}
+
+writeRaster(primf_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+ 
+
+
+######################## Not work
+
+for(j in 1:length(dir)){
+  writeRaster(stack( list.files(path=dir[j], recursive=TRUE, full.names=TRUE, pattern='rain'))*2,
+              paste0(dir[j],"/",strsplit(dir[j],"/")[[1]][2], "_new.tif"), overwrite=TRUE,  bylayer=TRUE )
+}
+
+sub <- list.dirs(path= "/home/taina/Documentos/LUH2_Data/Results/SSP2_45_2015_2100/",full.names=FALSE, recursive=FALSE)
+
+
+
+
+for(j in 1:length(sub)) {
+  writeRaster(primf_final, file.path=(sub[j]), "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+ 
+}
+
+
+for(i in 1:length(files)) {
+  r <-raster(files[i])
+  rc <- crop(r, e)
+  rc <- writeRaster(rc, outfiles[i])
+}
+
+
+writeRaster(primf_final, file.path("/home/taina/Documentos/LUH2_Data/Results/SSP2_45_2015_2100/", names(sub)), "GTiff",  bylayer= T, suffix ="names", overwrite=FALSE)
+
+
+ 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
@@ -124,7 +258,7 @@ extent(primn_final) <- c(-180,180, -90,90) # set extent
 spplot(primn_final)
 
 #10 Write and save rasters
-writeRaster(primn_final, "CMPI6_Land_Use_Harmonization_primn.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(primn_final, "CMIP6_Land_Use_Harmonization_primn.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -184,7 +318,7 @@ extent(secdf_final) <- c(-180,180, -90,90) # set extent
 spplot(secdf_final)
 
 #10 Write and save rasters
-writeRaster(secdf_final, "CMPI6_Land_Use_Harmonization_secdf.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(secdf_final, "CMIP6_Land_Use_Harmonization_secdf.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -245,7 +379,7 @@ extent(secdn_final) <- c(-180,180, -90,90) # set extent
 spplot(secdn_final)
 
 #10 Write and save rasters
-writeRaster(secdn_final, "CMPI6_Land_Use_Harmonization_secdn.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(secdn_final, "CMIP6_Land_Use_Harmonization_secdn.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -305,7 +439,7 @@ extent(urban_final) <- c(-180,180, -90,90) # set extent
 spplot(urban_final)
 
 #10 Write and save rasters
-writeRaster(urban_final, "CMPI6_Land_Use_Harmonization_urban.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(urban_final, "CMIP6_Land_Use_Harmonization_urban.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -365,7 +499,7 @@ extent(c3ann_final) <- c(-180,180, -90,90) # set extent
 spplot(c3ann_final)
 
 #10 Write and save rasters
-writeRaster(c3ann_final, "CMPI6_Land_Use_Harmonization_c3ann.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(c3ann_final, "CMIP6_Land_Use_Harmonization_c3ann.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -425,7 +559,7 @@ extent(c4ann_final) <- c(-180,180, -90,90) # set extent
 spplot(c4ann_final)
 
 #10 Write and save rasters
-writeRaster(c4ann_final, "CMPI6_Land_Use_Harmonization_c4ann.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(c4ann_final, "CMIP6_Land_Use_Harmonization_c4ann.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -485,7 +619,7 @@ extent(c3per_final) <- c(-180,180, -90,90) # set extent
 spplot(c3per_final)
 
 #10 Write and save rasters
-writeRaster(c3per_final, "CMPI6_Land_Use_Harmonization_c3per.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(c3per_final, "CMIP6_Land_Use_Harmonization_c3per.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -545,7 +679,7 @@ extent(c4per_final) <- c(-180,180, -90,90) # set extent
 spplot(c4per_final)
 
 #10 Write and save rasters
-writeRaster(c4per_final, "CMPI6_Land_Use_Harmonization_c4per.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(c4per_final, "CMIP6_Land_Use_Harmonization_c4per.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -604,7 +738,7 @@ extent(c3nfx_final) <- c(-180,180, -90,90) # set extent
 spplot(c3nfx_final)
 
 #10 Write and save rasters
-writeRaster(c3nfx_final, "CMPI6_Land_Use_Harmonization_c3nfx.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(c3nfx_final, "CMIP6_Land_Use_Harmonization_c3nfx.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -663,7 +797,7 @@ extent(pastr_final) <- c(-180,180, -90,90) # set extent
 spplot(pastr_final)
 
 #10 Write and save rasters
-writeRaster(pastr_final, "CMPI6_Land_Use_Harmonization_pastr.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(pastr_final, "CMIP6_Land_Use_Harmonization_pastr.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -722,7 +856,7 @@ extent(range_final) <- c(-180,180, -90,90) # set extent
 spplot(range_final)
 
 #10 Write and save rasters
-writeRaster(range_final, "CMPI6_Land_Use_Harmonization_range.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(range_final, "CMIP6_Land_Use_Harmonization_range.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
