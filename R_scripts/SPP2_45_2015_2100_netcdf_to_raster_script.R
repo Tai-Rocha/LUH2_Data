@@ -15,7 +15,6 @@ states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SS
 
 #2 Create directory per year  
 
-#2.1 Create a folder names 
 subfolder_names <- c("CMIP6_Land_Use_Harmonization_SSP2_45_2015",
                      "CMIP6_Land_Use_Harmonization_SSP2_45_2016",
                      "CMIP6_Land_Use_Harmonization_SSP2_45_2017",
@@ -103,7 +102,7 @@ subfolder_names <- c("CMIP6_Land_Use_Harmonization_SSP2_45_2015",
                      "CMIP6_Land_Use_Harmonization_SSP2_45_2099",
                      "CMIP6_Land_Use_Harmonization_SSP2_45_2100")
 
-#2.2 Loop to crate a these folders in singles folder 
+#2.2 Loop to crate these folders in singles folder 
 
 for (j in 1: length(subfolder_names)){
   dir.create(paste0("/home/taina/Documentos/LUH2_Data/Results/SSP2_45_2015_2100/",subfolder_names[j]))
@@ -159,46 +158,179 @@ spplot(primf_final)
 
 
 #10 Write and save rasters in a year folders 
-#2.3 List the subfolders
 
+writeRaster(primf_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
 
-for (a in nlayers(primf_final)){
-  pf_unst<- unstack(primf_final[a])
-}
+writeRaster(primf_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
 
-writeRaster(primf_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
- 
+writeRaster(primf_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
 
+writeRaster(primf_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
 
-######################## Not work
+writeRaster(primf_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
 
-for(j in 1:length(dir)){
-  writeRaster(stack( list.files(path=dir[j], recursive=TRUE, full.names=TRUE, pattern='rain'))*2,
-              paste0(dir[j],"/",strsplit(dir[j],"/")[[1]][2], "_new.tif"), overwrite=TRUE,  bylayer=TRUE )
-}
+writeRaster(primf_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
 
-sub <- list.dirs(path= "/home/taina/Documentos/LUH2_Data/Results/SSP2_45_2015_2100/",full.names=FALSE, recursive=FALSE)
+writeRaster(primf_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
 
+writeRaster(primf_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
 
+writeRaster(primf_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
 
+writeRaster(primf_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
 
-for(j in 1:length(sub)) {
-  writeRaster(primf_final, file.path=(sub[j]), "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
- 
-}
+writeRaster(primf_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
 
+writeRaster(primf_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
 
-for(i in 1:length(files)) {
-  r <-raster(files[i])
-  rc <- crop(r, e)
-  rc <- writeRaster(rc, outfiles[i])
-}
+writeRaster(primf_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
 
+writeRaster(primf_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
 
-writeRaster(primf_final, file.path("/home/taina/Documentos/LUH2_Data/Results/SSP2_45_2015_2100/", names(sub)), "GTiff",  bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(primf_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
 
+writeRaster(primf_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
 
- 
+writeRaster(primf_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primf_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primf_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_primf_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
+
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
@@ -258,13 +390,182 @@ extent(primn_final) <- c(-180,180, -90,90) # set extent
 spplot(primn_final)
 
 #10 Write and save rasters
-writeRaster(primn_final, "CMIP6_Land_Use_Harmonization_primn.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+writeRaster(primn_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(primn_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(primn_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_primn_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
 dev.off(dev.list()["RStudioGD"]) ## remove all plots
-
 
 
 ########################################################################################
@@ -318,13 +619,183 @@ extent(secdf_final) <- c(-180,180, -90,90) # set extent
 spplot(secdf_final)
 
 #10 Write and save rasters
-writeRaster(secdf_final, "CMIP6_Land_Use_Harmonization_secdf.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdf_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdf_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
 dev.off(dev.list()["RStudioGD"]) ## remove all plots
-
 
 
 
@@ -379,7 +850,178 @@ extent(secdn_final) <- c(-180,180, -90,90) # set extent
 spplot(secdn_final)
 
 #10 Write and save rasters
-writeRaster(secdn_final, "CMIP6_Land_Use_Harmonization_secdn.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(secdn_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(secdn_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -439,7 +1081,178 @@ extent(urban_final) <- c(-180,180, -90,90) # set extent
 spplot(urban_final)
 
 #10 Write and save rasters
-writeRaster(urban_final, "CMIP6_Land_Use_Harmonization_urban.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(urban_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(urban_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(urban_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_urban_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -499,7 +1312,178 @@ extent(c3ann_final) <- c(-180,180, -90,90) # set extent
 spplot(c3ann_final)
 
 #10 Write and save rasters
-writeRaster(c3ann_final, "CMIP6_Land_Use_Harmonization_c3ann.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3ann_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3ann_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -559,11 +1543,182 @@ extent(c4ann_final) <- c(-180,180, -90,90) # set extent
 spplot(c4ann_final)
 
 #10 Write and save rasters
-writeRaster(c4ann_final, "CMIP6_Land_Use_Harmonization_c4ann.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4ann_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4ann_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
-rm(list=ls()) ## list all environment objects and remove
 
+rm(list=ls()) ## list all environment objects and remove
 dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
@@ -619,7 +1774,178 @@ extent(c3per_final) <- c(-180,180, -90,90) # set extent
 spplot(c3per_final)
 
 #10 Write and save rasters
-writeRaster(c3per_final, "CMIP6_Land_Use_Harmonization_c3per.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3per_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3per_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -679,7 +2005,178 @@ extent(c4per_final) <- c(-180,180, -90,90) # set extent
 spplot(c4per_final)
 
 #10 Write and save rasters
-writeRaster(c4per_final, "CMIP6_Land_Use_Harmonization_c4per.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c4per_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c4per_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -738,7 +2235,178 @@ extent(c3nfx_final) <- c(-180,180, -90,90) # set extent
 spplot(c3nfx_final)
 
 #10 Write and save rasters
-writeRaster(c3nfx_final, "CMIP6_Land_Use_Harmonization_c3nfx.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(c3nfx_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(c3nfx_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -797,7 +2465,178 @@ extent(pastr_final) <- c(-180,180, -90,90) # set extent
 spplot(pastr_final)
 
 #10 Write and save rasters
-writeRaster(pastr_final, "CMIP6_Land_Use_Harmonization_pastr.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(pastr_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(pastr_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
@@ -856,7 +2695,178 @@ extent(range_final) <- c(-180,180, -90,90) # set extent
 spplot(range_final)
 
 #10 Write and save rasters
-writeRaster(range_final, "CMIP6_Land_Use_Harmonization_range.tif", "GTiff", bylayer= T, suffix ="names", overwrite=FALSE)
+
+writeRaster(range_final$layer.1, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2015/CMIP6_Land_Use_Harmonization_range_ssp2_45_2015.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.2, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2016/CMIP6_Land_Use_Harmonization_range_ssp2_45_2016.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.3, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2017/CMIP6_Land_Use_Harmonization_range_ssp2_45_2017.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.4, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2018/CMIP6_Land_Use_Harmonization_range_ssp2_45_2018.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.5, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2019/CMIP6_Land_Use_Harmonization_range_ssp2_45_2019.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.6, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2020/CMIP6_Land_Use_Harmonization_range_ssp2_45_2020.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.7, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2021/CMIP6_Land_Use_Harmonization_range_ssp2_45_2021.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.8, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2022/CMIP6_Land_Use_Harmonization_range_ssp2_45_2022.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.9, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2023/CMIP6_Land_Use_Harmonization_range_ssp2_45_2023.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.10, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2024/CMIP6_Land_Use_Harmonization_range_ssp2_45_2024.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.11, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2025/CMIP6_Land_Use_Harmonization_range_ssp2_45_2025.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.12, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2026/CMIP6_Land_Use_Harmonization_range_ssp2_45_2026.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.13, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2027/CMIP6_Land_Use_Harmonization_range_ssp2_45_2027.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.14, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2028/CMIP6_Land_Use_Harmonization_range_ssp2_45_2028.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.15, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2029/CMIP6_Land_Use_Harmonization_range_ssp2_45_2029.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.16, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2030/CMIP6_Land_Use_Harmonization_range_ssp2_45_2030.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.17, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2031/CMIP6_Land_Use_Harmonization_range_ssp2_45_2031.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.18, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2032/CMIP6_Land_Use_Harmonization_range_ssp2_45_2032.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.19, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2033/CMIP6_Land_Use_Harmonization_range_ssp2_45_2033.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.20, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2034/CMIP6_Land_Use_Harmonization_range_ssp2_45_2034.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.21, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2035/CMIP6_Land_Use_Harmonization_range_ssp2_45_2035.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.22, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2036/CMIP6_Land_Use_Harmonization_range_ssp2_45_2036.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.23, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2037/CMIP6_Land_Use_Harmonization_range_ssp2_45_2037.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.24, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2038/CMIP6_Land_Use_Harmonization_range_ssp2_45_2038.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.25, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2039/CMIP6_Land_Use_Harmonization_range_ssp2_45_2039.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.26, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2040/CMIP6_Land_Use_Harmonization_range_ssp2_45_2040.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.27, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2041/CMIP6_Land_Use_Harmonization_range_ssp2_45_2041.tif","GTiff", overwrite=FALSE) 
+
+writeRaster(range_final$layer.28, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2042/CMIP6_Land_Use_Harmonization_range_ssp2_45_2042.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.29, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2043/CMIP6_Land_Use_Harmonization_range_ssp2_45_2043.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.30, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2044/CMIP6_Land_Use_Harmonization_range_ssp2_45_2044.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.31, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2045/CMIP6_Land_Use_Harmonization_range_ssp2_45_2045.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.32, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2046/CMIP6_Land_Use_Harmonization_range_ssp2_45_2046.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.33, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2047/CMIP6_Land_Use_Harmonization_range_ssp2_45_2047.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.34, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2048/CMIP6_Land_Use_Harmonization_range_ssp2_45_2048.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.35, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2049/CMIP6_Land_Use_Harmonization_range_ssp2_45_2049.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.36, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2050/CMIP6_Land_Use_Harmonization_range_ssp2_45_2050.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.37, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2051/CMIP6_Land_Use_Harmonization_range_ssp2_45_2051.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.38, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2052/CMIP6_Land_Use_Harmonization_range_ssp2_45_2052.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.39, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2053/CMIP6_Land_Use_Harmonization_range_ssp2_45_2053.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.40, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2054/CMIP6_Land_Use_Harmonization_range_ssp2_45_2054.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.41, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2055/CMIP6_Land_Use_Harmonization_range_ssp2_45_2055.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.42, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2056/CMIP6_Land_Use_Harmonization_range_ssp2_45_2056.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.43, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2057/CMIP6_Land_Use_Harmonization_range_ssp2_45_2057.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.44, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2058/CMIP6_Land_Use_Harmonization_range_ssp2_45_2058.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.45, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2059/CMIP6_Land_Use_Harmonization_range_ssp2_45_2059.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.46, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2060/CMIP6_Land_Use_Harmonization_range_ssp2_45_2060.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.47, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2061/CMIP6_Land_Use_Harmonization_range_ssp2_45_2061.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.48, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2062/CMIP6_Land_Use_Harmonization_range_ssp2_45_2062.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.49, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2063/CMIP6_Land_Use_Harmonization_range_ssp2_45_2063.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.50, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2064/CMIP6_Land_Use_Harmonization_range_ssp2_45_2064.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.51, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2065/CMIP6_Land_Use_Harmonization_range_ssp2_45_2065.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.52, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2066/CMIP6_Land_Use_Harmonization_range_ssp2_45_2066.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.53, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2067/CMIP6_Land_Use_Harmonization_range_ssp2_45_2067.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.54, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2068/CMIP6_Land_Use_Harmonization_range_ssp2_45_2068.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.55, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2069/CMIP6_Land_Use_Harmonization_range_ssp2_45_2069.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.56, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2070/CMIP6_Land_Use_Harmonization_range_ssp2_45_2070.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.57, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2071/CMIP6_Land_Use_Harmonization_range_ssp2_45_2071.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.58, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2072/CMIP6_Land_Use_Harmonization_range_ssp2_45_2072.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.59, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2073/CMIP6_Land_Use_Harmonization_range_ssp2_45_2073.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.60, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2074/CMIP6_Land_Use_Harmonization_range_ssp2_45_2074.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.61, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2075/CMIP6_Land_Use_Harmonization_range_ssp2_45_2075.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.62, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2076/CMIP6_Land_Use_Harmonization_range_ssp2_45_2076.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.63, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2077/CMIP6_Land_Use_Harmonization_range_ssp2_45_2077.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.64, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2078/CMIP6_Land_Use_Harmonization_range_ssp2_45_2078.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.65, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2079/CMIP6_Land_Use_Harmonization_range_ssp2_45_2079.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.66, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2080/CMIP6_Land_Use_Harmonization_range_ssp2_45_2080.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.67, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2081/CMIP6_Land_Use_Harmonization_range_ssp2_45_2081.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.68, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2082/CMIP6_Land_Use_Harmonization_range_ssp2_45_2082.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.69, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2083/CMIP6_Land_Use_Harmonization_range_ssp2_45_2083.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.70, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2084/CMIP6_Land_Use_Harmonization_range_ssp2_45_2084.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.71, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2085/CMIP6_Land_Use_Harmonization_range_ssp2_45_2085.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.72, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2086/CMIP6_Land_Use_Harmonization_range_ssp2_45_2086.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.73, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2087/CMIP6_Land_Use_Harmonization_range_ssp2_45_2087.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.74, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2088/CMIP6_Land_Use_Harmonization_range_ssp2_45_2088.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.75, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2089/CMIP6_Land_Use_Harmonization_range_ssp2_45_2089.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.76, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2090/CMIP6_Land_Use_Harmonization_range_ssp2_45_2090.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.77, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2091/CMIP6_Land_Use_Harmonization_range_ssp2_45_2091.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.78, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2092/CMIP6_Land_Use_Harmonization_range_ssp2_45_2092.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.79, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2093/CMIP6_Land_Use_Harmonization_range_ssp2_45_2093.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.80, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2094/CMIP6_Land_Use_Harmonization_range_ssp2_45_2094.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.81, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2095/CMIP6_Land_Use_Harmonization_range_ssp2_45_2095.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.82, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2096/CMIP6_Land_Use_Harmonization_range_ssp2_45_2096.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.83, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2097/CMIP6_Land_Use_Harmonization_range_ssp2_45_2097.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.84, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2098/CMIP6_Land_Use_Harmonization_range_ssp2_45_2098.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.85, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2099/CMIP6_Land_Use_Harmonization_range_ssp2_45_2099.tif","GTiff", overwrite=FALSE)
+
+writeRaster(range_final$layer.86, file= "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/CMIP6_Land_Use_Harmonization_range_ssp2_45_2100.tif","GTiff", overwrite=FALSE)
 
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
