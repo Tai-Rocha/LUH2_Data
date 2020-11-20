@@ -288,5 +288,8 @@ for(j in 1:length(sub)) {
   LULC_2100_SSP2_45 <- which.max(stack.list[[86]])
   writeRaster(LULC_2100_SSP2_45, "./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_45_2100/LULC_2100_SSP2_45_CMIP6.tif")
   
-  }
+}
+
+
+################# End
 
