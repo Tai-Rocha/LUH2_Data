@@ -1,3 +1,44 @@
+# LUH2 data Standart Gis Format
+
+## Welcome and thanks for visiting this repository!
+
+## A brief introduction about the product:
+#### The The World Climate Research Programme (WCRP, site________) is the main organization that adresses quetions related to the coupled climate system, providing many products of past, present and future climatic and land cover global conditions. Several initiatives redistribute this data according to their needs and demands as Wordclim (______), Paleoclim (______), Ecoclimate (____) and others.
+
+#### The Land use Harmonization Project (Site________) provide a dataset of harmonized set of land-use scenarios that smoothly connects the historical reconstructions of land-use with the future projections in the format required for Earth System Models (ESM) based on produtc of WCRP. The data is global with spatial resolution of 30 km, cover years from 850-2300 and including land use states, transitions and mgt layers, for more detail about the data please read: https://gsweb1vh2.umd.edu/LUH2/LUH2_v2f_README_v6.pdf 
+
+#### Here we built a R scripts to manage the "States" netcdf files provided by Land use hamornization projetc (LUH2, https://luh.umd.edu/data.shtml ) of CMIP6 (_______). We extrated 12 states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5) 
+
+## States:
+##### primf: forested primary land
+##### primn: non-forested primary land
+##### secdf: potentially forested secondary land
+##### secdn: potentially non-forested secondary land
+##### pastr: managed pasture
+##### range: rangeland
+##### urban: urban land
+##### c3ann: C3 annual crops
+##### c3per: C3 perennial crops
+##### c4ann: C4 annual crops
+##### c4per: C4 perennial crops
+##### c3nfx: C3 nitrogen-fixing crops
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```mermaid
 graph LR
 A(<font size=3>LUH2_netCDF) --> B[<font size=3>primf.tif]
