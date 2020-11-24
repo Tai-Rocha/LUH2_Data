@@ -1,4 +1,4 @@
-# LUH2 data Standart Gis Format
+# LUH2 data in Standard Gis Format
 
 ## Welcome and thanks for visiting this repository!
 The World Climate Research Programme (WCRP, site________) is the main organization that adresses quetions related to the coupled climate system, providing many products of past, present and future climatic and land cover global conditions. Several initiatives redistribute this data according to their needs and demands as Wordclim (______), Paleoclim (______), Ecoclimate (____) and others.
