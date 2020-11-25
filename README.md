@@ -30,7 +30,7 @@ The raw data is available in download page of Land Use Hamornization projetc  (L
 ## NEW
 
 
-<img src="https://user-images.githubusercontent.com/11633554/100250374-5d8c5600-2f1c-11eb-8302-0e1af71ebf66.png" width="250">
+<img src="https://user-images.githubusercontent.com/11633554/100250374-5d8c5600-2f1c-11eb-8302-0e1af71ebf66.png" width="550">
 
 
 
