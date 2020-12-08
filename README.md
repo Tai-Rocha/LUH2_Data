@@ -9,10 +9,11 @@ The Land use Harmonization Project (LUH https://luh.umd.edu/index.shtml) provide
 The raw data managed here is available for download in the follow link : https://luh.umd.edu/data.shtml. Also it's the the latestet version of models earth system, called CMPI6 (Coupled Model Intercomparison Project 6). Here we built a R scripts to conversion the "States" netcdf files in Tagged Image Format File (.tif extention) that is commoly input for ecological and biogeographic analysis.  We also create a new categorica data that is a land use land cover (LULC) based on twelve raw states, this LULC is an importante data for several spatial analysis as post processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate the LULC (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020). 
 Our workflow have 4 steps 
 
-    [x] 1 Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
-    [x] 2 Save each single state (which is a continuous data) as a TIF format
-    [x] 3 We created a new data that is Lad use land cover data with 12 states
+    [X] 1 Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
+    [X] 2 Save each single state (which is a continuous data) as a TIF format
+    [X] 3 We created a new data that is Lad use land cover data with 12 states
 
+<img src="https://user-images.githubusercontent.com/11633554/100250374-5d8c5600-2f1c-11eb-8302-0e1af71ebf66.png" width="550">
 
 ## 12 States:
 ##### primf: forested primary land
@@ -30,14 +31,10 @@ Our workflow have 4 steps
 
 
 
-## Land use Land cover data (new data derive from 12 states)
+## Land use Land cover data (new data derive from 12 states). Data for 2010 and 2100 years: 
 
 
 <img src="https://user-images.githubusercontent.com/11633554/101527442-c5a35900-396c-11eb-94d3-2b52d9a33c72.jpg" width="550">
-
-
-<img src="https://user-images.githubusercontent.com/11633554/100250374-5d8c5600-2f1c-11eb-8302-0e1af71ebf66.png" width="550">
-
 
 
 ## References 
