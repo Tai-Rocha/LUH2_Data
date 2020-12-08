@@ -29,7 +29,7 @@ Our workflow have 4 steps
     - [x]  We created a new data that is Lad use land cover data with 12 states
     - [ ]  Validate the data (in progress...)
 
-<img src="https://user-images.githubusercontent.com/11633554/101529518-6bf05e00-396f-11eb-9d48-5b6ff4add794.png)" width="550">
+<img src="https://user-images.githubusercontent.com/11633554/101529518-6bf05e00-396f-11eb-9d48-5b6ff4add794.png" width="550">
 
 
 
