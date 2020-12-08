@@ -9,8 +9,8 @@ The Land use Harmonization Project (LUH https://luh.umd.edu/index.shtml) provide
 The raw data managed here is available for download in the follow link : https://luh.umd.edu/data.shtml. Also it's the the latestet version of models earth system, called CMPI6 (Coupled Model Intercomparison Project 6). Here we built a R scripts to conversion the "States" netcdf files in Tagged Image Format File (.tif extention) that is commoly input for ecological and biogeographic analysis.  We also create a new categorica data that is a land use land cover (LULC) based on twelve raw states, this LULC is an importante data for several spatial analysis as post processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate the LULC (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020). 
 Our workflow have 4 steps 
 
-    - [x]  Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
-      
+    - [x] Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
+    
       States:
       primf: forested primary land
       primn: non-forested primary land
