@@ -10,7 +10,6 @@ The raw data managed here is available for download in the follow link : https:/
 
 Our workflow have 4 steps, as follow: 
 
-    
      - [x] 1- Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
     
       States:
