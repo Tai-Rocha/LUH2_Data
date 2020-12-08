@@ -10,7 +10,7 @@ The raw data managed here is available for download in the follow link : https:/
 
 Our workflow have 4 steps, as follow: 
 
-     - [x] 1- Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
+   - [x] 1- Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
     
       States:
       primf: forested primary land
@@ -26,9 +26,9 @@ Our workflow have 4 steps, as follow:
       c4per: C4 perennial crops
       c3nfx: C3 nitrogen-fixing crops
 
-    - [x] 2- Save each single state (which is a continuous data) as a TIF format
-    - [x] 3- We created a new data that is Lad use land cover data with 12 states
-    - [ ] 4-  Validate the data (in progress...)
+   - [x] 2- Save each single state (which is a continuous data) as a TIF format
+   - [x] 3- We created a new data that is Lad use land cover data with 12 states
+   - [ ] 4-  Validate the data (in progress...)
 
 <img src="https://user-images.githubusercontent.com/11633554/101529518-6bf05e00-396f-11eb-9d48-5b6ff4add794.png" width="550">
 
