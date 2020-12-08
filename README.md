@@ -7,9 +7,11 @@ The World Climate Research Programme (WCRP, https://www.wcrp-climate.org/) is th
 The Land use Harmonization Project (LUH https://luh.umd.edu/index.shtml) provide a dataset of harmonized set of land-use scenarios that smoothly connects the historical reconstructions of land-use with the future projections in the format required for Earth System Models (ESM) based on produtc of WCRP. The data is global with spatial resolution of ~ 50 km, cover years from 850-2300 including land use states, transitions and mgt layers and for several representitatve concentration paths (RCPs) and social economic paths (SSP). For more detail about the data please see the REAMDE of the raw data (https://gsweb1vh2.umd.edu/LUH2/LUH2_v2f_README_v6.pdf) and  Hurtt et al. 2006, 2011,2020 and Popp et al 2017.
 
 The raw data managed here is available for download in the follow link : https://luh.umd.edu/data.shtml. Also it's the the latestet version of models earth system, called CMPI6 (Coupled Model Intercomparison Project 6). Here we built a R scripts to conversion the "States" netcdf files in Tagged Image Format File (.tif extention) that is commoly input for ecological and biogeographic analysis.  We also create a new categorica data that is a land use land cover (LULC) based on twelve raw states, this LULC is an importante data for several spatial analysis as post processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate the LULC (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020). 
-Our workflow have 4 steps 
 
-    - [x] Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
+Our workflow have 4 steps, as follow: 
+
+    
+     - [x] 1- Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
     
       States:
       primf: forested primary land
@@ -25,9 +27,9 @@ Our workflow have 4 steps
       c4per: C4 perennial crops
       c3nfx: C3 nitrogen-fixing crops
 
-    - [x]  Save each single state (which is a continuous data) as a TIF format
-    - [x]  We created a new data that is Lad use land cover data with 12 states
-    - [ ]  Validate the data (in progress...)
+    - [x] 2- Save each single state (which is a continuous data) as a TIF format
+    - [x] 3- We created a new data that is Lad use land cover data with 12 states
+    - [ ] 4-  Validate the data (in progress...)
 
 <img src="https://user-images.githubusercontent.com/11633554/101529518-6bf05e00-396f-11eb-9d48-5b6ff4add794.png" width="550">
 
