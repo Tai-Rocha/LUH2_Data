@@ -1,4 +1,6 @@
-# LUH2 data in Standard Gis Format
+# Global land-use and land-cover (LULC) data under historical, current, and future climatic conditions for ecologists.
+
+
 
 ## Welcome and thanks for visiting this repository!
 The World Climate Research Programme (WCRP, https://www.wcrp-climate.org/) is the main organization that adresses quetions related to the coupled climate system, providing many products of past, present and future climatic and land cover global conditions. Several initiatives redistribute this data according to their needs and demands as Wordclim (https://www.worldclim.org/), Paleoclim (http://www.paleoclim.org/), Ecoclimate (https://www.ecoclimate.org/) and others.
