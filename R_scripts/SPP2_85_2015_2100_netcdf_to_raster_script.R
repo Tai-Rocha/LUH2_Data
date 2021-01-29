@@ -11,7 +11,7 @@ library(ncdf4)
 
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Create directory per year  
 
@@ -105,7 +105,7 @@ subfolder_names <- c("CMIP6_Land_Use_Harmonization_SSP2_85_2015",
 #2.2 Loop to crate these folders in singles folder 
 
 for (j in 1: length(subfolder_names)){
-  dir.create(paste0("/home/taina/Documentos/LUH2_Data/Results/SSP2_85_2015_2100/",subfolder_names[j]))
+  dir.create(paste0("./Results/SSP2_85_2015_2100/",subfolder_names[j]))
 }
 
 #3 Get the coordinate reference system (CRS) to use for raster
@@ -247,7 +247,7 @@ writeRaster(primf_final$layer.43, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(primf_final$layer.44, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2058/CMIP6_Land_Use_Harmonization_primf_ssp2_85_2058.tif","GTiff", overwrite=FALSE)
 
-writeRaster(primf_final$layer.85, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2059/CMIP6_Land_Use_Harmonization_primf_ssp2_85_2059.tif","GTiff", overwrite=FALSE)
+writeRaster(primf_final$layer.45, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2059/CMIP6_Land_Use_Harmonization_primf_ssp2_85_2059.tif","GTiff", overwrite=FALSE)
 
 writeRaster(primf_final$layer.46, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2060/CMIP6_Land_Use_Harmonization_primf_ssp2_85_2060.tif","GTiff", overwrite=FALSE)
 
@@ -344,7 +344,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -573,7 +573,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -804,7 +804,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -1035,7 +1035,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -1266,7 +1266,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -1497,7 +1497,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -1728,7 +1728,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -1959,7 +1959,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -2189,7 +2189,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -2419,7 +2419,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -2649,7 +2649,7 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 ########################################################################################
 
 #1 Open NetCDF
-states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP2 (from MESSAGE-GLOBIOM)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MESSAGE-ssp285-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
+states_85_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP8.5 SSP5 (from REMIND-MAGPIE)/multiple-states_input4MIPs_landState_ScenarioMIP_UofMD-MAGPIE-ssp585-2-1-f_gn_2015-2100.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Get the coordinate reference system (CRS) to use for raster
 epsg <- make_EPSG() # call the list of epsg
