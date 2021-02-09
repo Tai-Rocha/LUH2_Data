@@ -45,7 +45,7 @@ subfolder_names <- c("CMIP6_Land_Use_Harmonization_SSP2_85_2015",
                      "CMIP6_Land_Use_Harmonization_SSP2_85_2042",
                      "CMIP6_Land_Use_Harmonization_SSP2_85_2043",
                      "CMIP6_Land_Use_Harmonization_SSP2_85_2044",
-                     "CMIP6_Land_Use_Harmonization_SSP2_85_2085",
+                     "CMIP6_Land_Use_Harmonization_SSP2_85_2045",
                      "CMIP6_Land_Use_Harmonization_SSP2_85_2046",
                      "CMIP6_Land_Use_Harmonization_SSP2_85_2047",
                      "CMIP6_Land_Use_Harmonization_SSP2_85_2048",
@@ -219,7 +219,7 @@ writeRaster(primf_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(primf_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_primf_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(primf_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_primf_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(primf_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_primf_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(primf_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_primf_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -450,7 +450,7 @@ writeRaster(primn_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(primn_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_primn_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(primn_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_primn_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(primn_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_primn_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(primn_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_primn_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -680,7 +680,7 @@ writeRaster(secdf_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(secdf_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_secdf_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(secdf_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_secdf_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(secdf_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_secdf_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(secdf_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_secdf_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -911,7 +911,7 @@ writeRaster(secdn_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(secdn_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_secdn_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(secdn_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_secdn_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(secdn_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_secdn_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(secdn_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_secdn_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -1142,7 +1142,7 @@ writeRaster(urban_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(urban_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_urban_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(urban_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_urban_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(urban_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_urban_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(urban_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_urban_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -1373,7 +1373,7 @@ writeRaster(c3ann_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(c3ann_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_c3ann_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(c3ann_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_c3ann_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(c3ann_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_c3ann_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(c3ann_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_c3ann_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -1604,7 +1604,7 @@ writeRaster(c4ann_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(c4ann_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_c4ann_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(c4ann_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_c4ann_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(c4ann_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_c4ann_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(c4ann_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_c4ann_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -1835,7 +1835,7 @@ writeRaster(c3per_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(c3per_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_c3per_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(c3per_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_c3per_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(c3per_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_c3per_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(c3per_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_c3per_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -2066,7 +2066,7 @@ writeRaster(c4per_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(c4per_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_c4per_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(c4per_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_c4per_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(c4per_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_c4per_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(c4per_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_c4per_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -2296,7 +2296,7 @@ writeRaster(c3nfx_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(c3nfx_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(c3nfx_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(c3nfx_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(c3nfx_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -2526,7 +2526,7 @@ writeRaster(pastr_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(pastr_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_pastr_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(pastr_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_pastr_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(pastr_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_pastr_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(pastr_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_pastr_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
@@ -2756,7 +2756,7 @@ writeRaster(range_final$layer.29, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_
 
 writeRaster(range_final$layer.30, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2044/CMIP6_Land_Use_Harmonization_range_ssp2_85_2044.tif","GTiff", overwrite=FALSE)
 
-writeRaster(range_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2085/CMIP6_Land_Use_Harmonization_range_ssp2_85_2085.tif","GTiff", overwrite=FALSE)
+writeRaster(range_final$layer.31, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2045/CMIP6_Land_Use_Harmonization_range_ssp2_85_2045.tif","GTiff", overwrite=FALSE)
 
 writeRaster(range_final$layer.32, file= "./Results/SSP2_85_2015_2100/CMIP6_Land_Use_Harmonization_SSP2_85_2046/CMIP6_Land_Use_Harmonization_range_ssp2_85_2046.tif","GTiff", overwrite=FALSE)
 
