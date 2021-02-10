@@ -134,3 +134,13 @@ pf<-t(pf)
 spplot(rt)
 
 writeRaster(rt, "CMPI6_Land_Use_Harmonization_primf.tif", "GTiff", bylayer= T, suffix ="names", overwrite=TRUE)
+########
+
+
+
+dir <- list.dirs(recursive=FALSE)
+
+for(j in 1:length(dir)){
+  writeRaster(stack( list.files(path=dir[j], recursive=TRUE, full.names=TRUE, pattern='rain'))*2,
+              paste0(dir[j],"/",strsplit(dir[j],"/")[[1]][2], "_new.tif"), overwrite=TRUE,  bylayer=TRUE )
+}
