@@ -334,7 +334,7 @@ writeRaster(primf_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 #### From now one I repeat  these 11 stpes. I alaways clean the environment after finshed each states. 
@@ -565,7 +565,7 @@ writeRaster(primn_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 ########################################################################################
@@ -795,7 +795,7 @@ writeRaster(secdf_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 
@@ -1026,7 +1026,7 @@ writeRaster(secdn_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 
@@ -1257,7 +1257,7 @@ writeRaster(urban_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 
@@ -1488,7 +1488,7 @@ writeRaster(c3ann_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 
@@ -1719,7 +1719,7 @@ writeRaster(c4ann_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 
 rm(list=ls()) ## list all environment objects and remove
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 
@@ -1950,7 +1950,7 @@ writeRaster(c3per_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 
@@ -2181,7 +2181,7 @@ writeRaster(c4per_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 ########################################################################################
@@ -2411,7 +2411,7 @@ writeRaster(c3nfx_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 ########################################################################################
@@ -2641,7 +2641,7 @@ writeRaster(pastr_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 
 ########################################################################################
@@ -2871,6 +2871,6 @@ writeRaster(range_final$layer.86, file= "./Results/SSP5_85_2015_2100/CMIP6_Land_
 #11 Clean environment and plots
 rm(list=ls()) ## list all environment objects and remove
 
-dev.off(dev.list()["RStudioGD"]) ## remove all plots
+#dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
 ################################# END #####################################################################
