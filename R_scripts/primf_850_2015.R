@@ -14,7 +14,7 @@ library(ncdf4)
 states<- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/Historical/states.nc", write=TRUE, readunlim=TRUE, verbose = TRUE, auto_GMT = TRUE, suppress_dimvals = FALSE)
 
 #2 Create directory per year. First a read the tables with de subfolders names
-table_8502015 <- read.csv("./data/table_850_2015_subfolders.csv")
+table_8502015 <- read.csv("./data/tables_to_write_in_rscripts/table_850_2015_subfolders.csv")
 
 subfolder_names <- c(table_8502015[1:1166,])
 
