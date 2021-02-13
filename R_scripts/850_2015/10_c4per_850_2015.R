@@ -21,13 +21,13 @@ head(epsg) # search for epsg 4326 and put below
 crs_object <-"+proj=longlat +datum=WGS84" #object of crs
 
 #3 Object prepare for loops of c4per state
-c4p <- states_45_SSP2$var[[9]]  ## Take c4per variable
+c4p <- states$var[[9]]  ## Take c4per variable
 c4p$name # Certificating that is a c4per variable 
 c4p_size <- c4p$varsize ## There should be 1440 lons, 720 lats, and 86 times
 c4p_dims <- c4p$ndims ## 3 dimensions Long, Lat and time
 c4p_v <- c4p_size[c4p_dims]  ## Length of time dimension (for loop for)
-lat <- states_45_SSP2$dim$latitude$vals   # latitude position
-lon <- states_45_SSP2$dim$longitude$vals  # longitude position
+lat <- states$dim$latitude$vals   # latitude position
+lon <- states$dim$longitude$vals  # longitude position
 c4per<-list() # c4per variable list
 
 #4 Loop to get 2015 to 2100 raster of c4per 
@@ -37,7 +37,7 @@ for (i in 1:c4p_v) {
   count <- c4p_size         # begin with count=(nx,ny,...,c4p_v), reads entire var
   count[c4p_dims] <- 1      # change to count=(nx,ny,...,1) to read 1 tstep
   
-  c4per_var <-ncvar_get(states_45_SSP2, varid = 'c4per', start = start, count = count)
+  c4per_var <-ncvar_get(states, varid = 'c4per', start = start, count = count)
   
   #5 convert to raster
   c4per[i]<-raster(c4per_var)
