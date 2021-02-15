@@ -15,7 +15,6 @@ setwd("./Results/850_2015/") # Set the parental folder
 
 ## Creating a list and select the subdirectories  
 
-
 stack.list <- list()  # Create a empty list for years stacks
 
 sub <- list.dirs(full.names=TRUE, recursive=FALSE) # List the subdirectories
