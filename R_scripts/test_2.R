@@ -55,6 +55,7 @@ LULC_860 <- stack(Lista_LULC_860)
 LULC_860 <- which.max(
 LULC_860) 
 writeRaster(LULC_860,"./CMIP6_Land_Use_Harmonization_860/LULC_860 _CMIP6.tif","GTiff",overwrite=TRUE)
+
 Lista_LULC_861 <- list.files("./CMIP6_Land_Use_Harmonization_861/",pattern = ".tif", full.names = T) 
 LULC_861 <- stack(Lista_LULC_861) 
 LULC_861 <- which.max(
