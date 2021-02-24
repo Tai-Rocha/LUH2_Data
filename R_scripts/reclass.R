@@ -6,6 +6,7 @@
 ############## Reclassificando raster
 
 #Library
+
 library(raster)
 library(rJava)
 library(rgeos)
@@ -106,7 +107,7 @@ raster_2010_reclass <-reclassify(x = raster_2010, #objeto raster
 
 
 ##salvando o novo raster reclassificado
-writeRaster(raster_2010_reclass,"./Results/Accuracy/LULC_2010_CMIP6_reclass.tif")
+writeRaster(raster_2010_reclass,"./data/Accuracy/Reclassified/LULC_2010_CMIP6_reclass.tif")
 plot(raster_2010_reclass)
 
 #######################################################################################################
@@ -128,7 +129,7 @@ raster_2015_reclass <-reclassify(x = raster_2015, #objeto raster
 
 
 ##salvando o novo raster reclassificado
-writeRaster(raster_2015_reclass,"./Results/Accuracy/LULC_2015_CMIP6_reclass.tif")
+writeRaster(raster_2015_reclass,"./data/Accuracy/Reclassified/LULC_2015_CMIP6_reclass.tif")
 plot(raster_2015_reclass)
 
 
