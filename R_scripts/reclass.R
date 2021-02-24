@@ -11,6 +11,29 @@ library(rJava)
 library(rgeos)
 library(rgdal)
 
+
+#### FAO reclass
+
+##Leitura e transformação em objeto do raster
+
+raster_FAO<-raster("./data/FAO/GlcShare_v10_Dominant/glc_shv10_DOM.Tif")
+plot(raster_FAO)
+
+as.factor(raster_FAO)
+##Reclassificando o objeto raster
+
+raster_reclass_2<-reclassify(x = raster_FAO, #objeto raster
+                             rcl =matriz_reclass_2, #matriz criada com os valores de origem e destino
+                             filename="FAO_reclassified7") #nome do arquivo de output
+
+plot(raster_reclass_2)
+
+##salvando o novo raster reclassificado
+as.factor(raster_reclass_2)
+plot(raster_reclass_2)
+writeRaster(raster_reclass_2,"./data/FAO/FAO_reclassified.tif")
+
+
 ## Criar uma matriz onde estarão os valores do pixel atual e o que serão substituídos
 
 matriz_reclass_2000<-matrix(data=c(1,2,3,4,5,6,7,8,9,10,11,12,1,3,1,3,3,3,4,2,2,2,2,2),nrow=12,ncol=2)
