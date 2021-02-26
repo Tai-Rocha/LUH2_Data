@@ -30,8 +30,8 @@ Our workflow have 4 steps, as follow:
 
    - [x] 2- Save each single state (which is a continuous data) as a TIF format
    - [x] 3- We created a new data that is Lad use land cover data with 12 states
-   - [ ] 4- LULC validation (in progress...)
-
+   - [X] 4- LULC validation 
+   
 <img src="https://user-images.githubusercontent.com/11633554/109347278-aae8ce00-7851-11eb-945a-2ad8e50d6352.png" width="550">
 
 
