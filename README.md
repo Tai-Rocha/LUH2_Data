@@ -32,7 +32,7 @@ Our workflow have 4 steps, as follow:
    - [x] 3- We created a new data that is Lad use land cover data with 12 states
    - [ ] 4- LULC validation (in progress...)
 
-<img src="https://user-images.githubusercontent.com/11633554/101529518-6bf05e00-396f-11eb-9d48-5b6ff4add794.png" width="550">
+<img src="https://user-images.githubusercontent.com/11633554/109347011-40379280-7851-11eb-9663-80e96c8f599c.png" width="550">
 
 
 
