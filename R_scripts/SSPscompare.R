@@ -31,7 +31,7 @@ dev.off()
 
 ## SSP_45 2020 and 2100
 
-SSP_2_45 <- read.csv("./data/Accuracy/ssps_45.csv")
+SSP_2_45 <- read.csv("./data/Accuracy/ssps2_45.csv")
 
 # create a dataset
 tiff(file="SSP_2_45",
@@ -43,7 +43,7 @@ dev.off()
 
 ## SSP_45 2020 and 2100
 
-SSP_5_85 <- read.csv("./data/Accuracy/ssps_85.csv")
+SSP_5_85 <- read.csv("./data/Accuracy/ssps5_85.csv")
 
 # create a dataset
 tiff(file="SSP_5_85",
