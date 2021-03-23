@@ -3,14 +3,13 @@
 
 
 ## Welcome 
-The World Climate Research Programme (WCRP, https://www.wcrp-climate.org/) is the main organization that adresses quetions related to the coupled climate system, providing many products of past, present and future climatic and land cover global conditions. Several initiatives redistribute this data according to their needs and demands as Wordclim (https://www.worldclim.org/), Paleoclim (http://www.paleoclim.org/), Ecoclimate (https://www.ecoclimate.org/) and others.
+The World Climate Research Programme (WCRP, https://www.wcrp-climate.org/) is the main organization that addresses questions related to the coupled climate system, providing many products of past, present, and future climatic and land cover global conditions. Several initiatives redistribute this data according to their needs and demands as Wordclim (https://www.worldclim.org/), Paleoclim (http://www.paleoclim.org/), Ecoclimate (https://www.ecoclimate.org/) and others.
 
+The Land use Harmonization Project (LUH https://luh.umd.edu/index.shtml) provide a dataset of harmonized set of land-use scenarios that smoothly connects the historical reconstructions of land-use with the future projections in the format required for Earth System Models (ESM) based on products of WCRP. The data is global with a spatial resolution of ~ 50 km, cover years from 850-2300 including land-use states, transitions and mgt layers and for several representative concentration paths (RCPs) and social-economic paths (SSP). For more detail about the data please see the REAMDE of the raw data (https://gsweb1vh2.umd.edu/LUH2/LUH2_v2f_README_v6.pdf) and  Hurtt et al. 2006, 2011,2020 and Popp et al 2017.
 
-The Land use Harmonization Project (LUH https://luh.umd.edu/index.shtml) provide a dataset of harmonized set of land-use scenarios that smoothly connects the historical reconstructions of land-use with the future projections in the format required for Earth System Models (ESM) based on produtc of WCRP. The data is global with spatial resolution of ~ 50 km, cover years from 850-2300 including land use states, transitions and mgt layers and for several representitatve concentration paths (RCPs) and social economic paths (SSP). For more detail about the data please see the REAMDE of the raw data (https://gsweb1vh2.umd.edu/LUH2/LUH2_v2f_README_v6.pdf) and  Hurtt et al. 2006, 2011,2020 and Popp et al 2017.
+The raw data managed here is available for download at the following link: https://luh.umd.edu/data.shtml. Also, it's the latest version of the models earth system, called CMPI6 (Coupled Model Intercomparison Project 6). Here we built an R script to convert the "States" NetCDF files in Tagged Image Format File (.tif extension) that is commonly input for ecological and biogeographic analysis.  We also create a new categorical data that is a land use land cover (LULC) based on twelve raw states, this LULC is important data for several spatial analysis as post-processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate the LULC (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020). 
 
-The raw data managed here is available for download in the follow link : https://luh.umd.edu/data.shtml. Also it's the the latestet version of models earth system, called CMPI6 (Coupled Model Intercomparison Project 6). Here we built a R scripts to conversion the "States" netcdf files in Tagged Image Format File (.tif extention) that is commoly input for ecological and biogeographic analysis.  We also create a new categorica data that is a land use land cover (LULC) based on twelve raw states, this LULC is an importante data for several spatial analysis as post processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate the LULC (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020). 
-
-Our workflow have 4 steps, as follow: 
+Our workflow has 4 steps, as follow: 
 
    - [x] 1- Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
     
@@ -28,7 +27,7 @@ Our workflow have 4 steps, as follow:
       - c4per: C4 perennial crops
       - c3nfx: C3 nitrogen-fixing crops
 
-   - [x] 2- Save each single state (which is a continuous data) as a TIF format
+   - [x] 2- Save every single state (which is continuous data) as a TIF format
    - [x] 3- We created a new data that is Lad use land cover data with 12 states
    - [X] 4- LULC validation 
    
@@ -37,8 +36,7 @@ Our workflow have 4 steps, as follow:
 
 
 
-## Land use Land cover data (new data derive from 12 states). Data for 2010 and 2100 years: 
-
+## Land use Land cover data (new data derived from 12 states). Data for 2010 and 2100 years: 
 
 <img src="https://user-images.githubusercontent.com/11633554/101527442-c5a35900-396c-11eb-94d3-2b52d9a33c72.jpg" width="550">
 
