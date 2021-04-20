@@ -1,6 +1,6 @@
 # Global land-use and land-cover (LULC) data under historical, current, and future climatic conditions for ecologists.
 
-### Ps.: The complete product and dataset generated are in the submission process and will freely available in ecoClime (https://www.ecoclimate.org/) database as soon as possible
+### Ps.: The complete product and dataset generated are in the submission process and will freely available in the ecoClime database (https://www.ecoclimate.org/)  as soon as possible
 
 
 
