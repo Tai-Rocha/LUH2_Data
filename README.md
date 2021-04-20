@@ -11,7 +11,7 @@ As part of the WCRP, The Land use Harmonization Project (LUH2 https://luh.umd.ed
 
 Here I managed the LUH2 data from years 850 to 2100 for the latest version of the model earth system, called CMIP6 (Coupled Model Intercomparison Project Phase 6). I built an R script to extract the "States" from NetCDF files and convert them as a Tagged Image Format File (.tif extension) that is commonly input for ecological and biogeographic analysis. I also create a new categorical data that is a land use land cover (LULC) based on twelve raw states, this LULC is important data for several spatial analysis as post-processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate them (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020).
 
-Our workflow has 4 steps, as follow: 
+The workflow has 4 steps, as follow: 
 
    - [x] 1- Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
     
