@@ -36,9 +36,14 @@ Our workflow has 4 steps, as follow:
 
 
 
-## Land use Land cover data (new data derived from 12 states). Data for 2010 and 2100 years: 
+## Land use Land cover data (new data derived from 12 states). Data for 2020 and 2100 years: 
 
-<img src="https://user-images.githubusercontent.com/11633554/101527442-c5a35900-396c-11eb-94d3-2b52d9a33c72.jpg" width="550">
+<img src="https://user-images.githubusercontent.com/11633554/115323712-fd15e380-a15e-11eb-9ac7-a3d58178f6cd.png" width="550">
+
+## Shared Socioeconomic Pathways and years compare among states
+
+<img src="https://user-images.githubusercontent.com/11633554/115323856-3bab9e00-a15f-11eb-95ef-772cf0444f25.png" width="550">
+
 
 
 ## References 
