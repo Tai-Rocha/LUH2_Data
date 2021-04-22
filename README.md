@@ -39,7 +39,7 @@ The workflow has 4 steps, as follow:
 
 
 
-## Land use Land cover data (new data derived from 12 states). Data for 2020 and 2100 years: 
+## Land use Land cover data (new data derived from 12 states). Data for SSP5 scenario in years 2020 and 2100 : 
 
 <img src="https://user-images.githubusercontent.com/11633554/115323712-fd15e380-a15e-11eb-9ac7-a3d58178f6cd.png" width="550">
 
