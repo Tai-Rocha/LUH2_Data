@@ -16,6 +16,8 @@ Here I managed the LUH2 data from years 850 to 2100 for the latest version of th
 
 The workflow has 4 steps, as follow: 
 
+<img align="right" width="300" height="300" src="https://user-images.githubusercontent.com/11633554/109347278-aae8ce00-7851-11eb-945a-2ad8e50d6352.png" > <br /><br />
+
    - [x] 1- Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
     
       States:
@@ -36,7 +38,7 @@ The workflow has 4 steps, as follow:
    - [x] 3- We created a new data that is Lad use land cover data with 12 states
    - [X] 4- LULC validation 
    
-<img align="right" width="300" height="300" src="https://user-images.githubusercontent.com/11633554/109347278-aae8ce00-7851-11eb-945a-2ad8e50d6352.png" > <br /><br />
+
 
 
 ## Results
