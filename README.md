@@ -21,7 +21,10 @@ The workflow has 4 steps, as follow:
    - [x] 1- Extract one by one of twelve states per year from 850 to 2100 and for two future scenarios (RCP 4.5/SSP2 and RCP 8.5/SSP5)
     
       States:
-      <img align="right" width="400" height="400" src="https://user-images.githubusercontent.com/11633554/109347278-aae8ce00-7851-11eb-945a-2ad8e50d6352.png" > Figure S1. Workflow
+      <figure>
+         <img align="right" width="400" height="400" src="https://user-images.githubusercontent.com/11633554/109347278-aae8ce00-7851-11eb-945a-2ad8e50d6352.png" > 
+         <figcaption>MDN Logo</figcaption>
+</figure>
       - primf: forested primary land
       - primn: non-forested primary land
       - secdf: potentially forested secondary land
