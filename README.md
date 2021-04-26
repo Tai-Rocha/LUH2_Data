@@ -42,7 +42,7 @@ The workflow has 4 steps, as follow:
 
 
 ## Results
-I generated 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster as shown in figure 1 for the forested primary land state. Other 1338 files are new data created by the combination of 12 original states, which are categorical data .
+Total of 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster. Other 1338 files are new data created by the combination of 12 original states, which are categorical data .
 ### Land use Land cover data (new data derived from 12 states). Data for SSP5 scenario in years 2020 and 2100 : 
 
 <img src="https://user-images.githubusercontent.com/11633554/115323712-fd15e380-a15e-11eb-9ac7-a3d58178f6cd.png" width="550">
