@@ -36,12 +36,12 @@ The workflow has 4 steps, as follow:
    - [x] 3- We created a new data that is Lad use land cover data with 12 states
    - [X] 4- LULC validation 
    
-<img src="https://user-images.githubusercontent.com/11633554/109347278-aae8ce00-7851-11eb-945a-2ad8e50d6352.png" width="550">
-<br />
+<img src="https://user-images.githubusercontent.com/11633554/109347278-aae8ce00-7851-11eb-945a-2ad8e50d6352.png" width="550"> <br /><br />
+
 
 ## Results
-Total of 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster (Fig.1). Other 1338 files are new data created by the combination of 12 original states, which are categorical data (Fig 2).
-<br />
+Total of 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster (Fig.1). Other 1338 files are new data created by the combination of 12 original states, which are categorical data (Fig 2). <br /><br />
+
 <img src="https://user-images.githubusercontent.com/11633554/116018875-5d9e9800-a619-11eb-858f-05daa50d0cdc.png" width="550">
 Figure 1. Maps of forested primary lan states for 2020 and 2100 as originally provided by the Land-Use Harmonization project.  State values range from 0 to 1, roughly representing the likelihood that the pixel is occupied by the land use/land cover class. All other states have this structure.
 <br />
