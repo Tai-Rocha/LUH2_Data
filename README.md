@@ -5,12 +5,14 @@
 
 
 
-## Welcome 
+## Introduction
 The World Climate Research Programme (WCRP, https://www.wcrp-climate.org/) is the main organization that addresses questions related to the coupled climate system, providing many products of past, present, and future climatic and land cover global conditions. Several initiatives redistribute this data according to their needs and demands as Wordclim (https://www.worldclim.org/), Paleoclim (http://www.paleoclim.org/), Ecoclimate (https://www.ecoclimate.org/) and others.
 
 As part of the WCRP, The Land use Harmonization Project (LUH2 https://luh.umd.edu/index.shtml) provide a dataset of harmonized set of land-use scenarios that smoothly connects the historical reconstructions of land-use with the future projections in the format required for Earth System Models (ESM). The data is global with a spatial resolution of ~ 50 km, cover years from 850-2300 including land-use states, transitions and mgt layers for several representative concentration paths (RCPs) and shared social-economic paths (SSP). For more detail about the data please see the REAMDE of the raw data (https://gsweb1vh2.umd.edu/LUH2/LUH2_v2f_README_v6.pdf) and  Hurtt et al. 2006, 2011,2020 and Popp et al 2017.
 
 Here I managed the LUH2 data from years 850 to 2100 for the latest version of the model earth system, called CMIP6 (Coupled Model Intercomparison Project Phase 6). I built R scripts to extract the "States" from NetCDF files and convert them as a Tagged Image Format File (.tif extension) that is commonly input for ecological and biogeographic analysis. I also create a new categorical data that is a land use land cover (LULC) based on twelve raw states, this LULC is important data for several spatial analysis as post-processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate them (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020).
+
+## Methods
 
 The workflow has 4 steps, as follow: 
 
@@ -39,7 +41,9 @@ The workflow has 4 steps, as follow:
 
 
 
-## Land use Land cover data (new data derived from 12 states). Data for SSP5 scenario in years 2020 and 2100 : 
+## Results
+I generated 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster as shown in figure 1 for the forested primary land state. Other 1338 files are new data created by the combination of 12 original states, which are categorical data .
+### Land use Land cover data (new data derived from 12 states). Data for SSP5 scenario in years 2020 and 2100 : 
 
 <img src="https://user-images.githubusercontent.com/11633554/115323712-fd15e380-a15e-11eb-9ac7-a3d58178f6cd.png" width="550">
 
@@ -48,6 +52,9 @@ The workflow has 4 steps, as follow:
 <img src="https://user-images.githubusercontent.com/11633554/115323856-3bab9e00-a15f-11eb-95ef-772cf0444f25.png" width="550">
 
 
+## Acknowledgment
+This initiative was only possible because the high-quality data is maintained and made publicly available by Land-Use Harmonization (https://luh.umd.edu/).
+This study was developed in the context of the Brazilian Network on Global Climate Change Research (Rede CLIMA) and the National Institute for Science and Technology in Ecology, Evolution and Conservation of Biodiversity (INCT EECBio,  CNPq Grant n 465610|2014-5, FAPEG 201810267000023) and Coordination for the Improvement of Higher Education Personnel (CAPES - Grant No. 88887.373031/2019-00)
 
 ## References 
 
