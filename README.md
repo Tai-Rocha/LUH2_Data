@@ -46,7 +46,7 @@ The workflow has 4 steps, as follow:
 Total of 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster (Fig.1). Other 1338 files are new data created by the combination of 12 original states, which are categorical data (Fig 2). <br /><br />
 
 <img style="float: right;" src="https://user-images.githubusercontent.com/11633554/116018875-5d9e9800-a619-11eb-858f-05daa50d0cdc.png" width="550">
-Figure 1. Maps of forested primary lan states for 2020 and 2100 as originally provided by the Land-Use Harmonization project.  State values range from 0 to 1, roughly representing the likelihood that the pixel is occupied by the land use/land cover class. All other states have this structure.<br /><br />
+Figure 1. Maps of forested primary lan states for 2020 and 2100 as originally provided by the Land-Use Harmonization project.  State values range from 0 to 1, roughly representing the likelihood that the pixel is occupied by the land use/land cover class. All other states have this structure.<br /><br /><br />
 
 
 <img src="https://user-images.githubusercontent.com/11633554/115323712-fd15e380-a15e-11eb-9ac7-a3d58178f6cd.png" width="550">
