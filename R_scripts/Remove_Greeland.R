@@ -7,13 +7,16 @@
 library(raster)
 library(rgdal)
 
+## Shape Mask for all files 
+
+mascara <- readOGR("./data/Accuracy/Shapes/Sem_Greeland.shp") # Load shape
+#plot(mascara)
+
+#################################### 850 _2015 #################################### 
+
 ##### List of directories
 
 lista_850 <-list.dirs("./Results/850_2015/")
-
-## Shape Mask
-
-mascara <- readOGR("./data/Accuracy/Shapes/Sem_Greeland.shp") # Load shape
 
 #plot(mascara) # plot shape
 
@@ -37,14 +40,76 @@ a <- paste0(names(stack_LULC), ".tif")
 
 writeRaster(final_LULC, filename=a, bylayer=TRUE) 
 
-########################### Remove old file
+## Remove old file from subfolders
 
 file.remove(list.files(path=lista_850, recursive=TRUE, full.names=TRUE, pattern='LULC_'))
 
+#################################### SSP2_45_2015_2100 #################################### 
 
-###################################
-for(i in 1:length(lista_850)) {
-  r <- list.files(path=lista_850[i], recursive=TRUE, full.names=TRUE,  pattern='LULC_')
-  print(r)
-} 
-  
+
+##### List of directories
+
+lista_SSP_2 <-list.dirs("./Results/SSP2_45_2015_2100/")
+
+## Stack all files
+
+stack_2_SSP <- stack(list.files(path=lista_SSP_2, recursive=TRUE, full.names=TRUE, pattern='LULC_'))
+
+#plot(stcak_2_SSP)
+
+# Aplly mask  
+
+mascara_2_SSP <- mask(x = stack_2_SSP, mask = mascara)
+
+## Crop by mask
+
+SSP_2 <- crop(x = mascara_2_SSP, y = extent(mascara)) 
+
+## Get correct names
+
+b <- paste0(names(stack_2_SSP), ".tif")
+
+## Save raster in parental folder
+
+writeRaster(SSP_2, filename=b, bylayer=TRUE) 
+
+## Remove old file from subfolders
+
+file.remove(list.files(path=lista_SSP_2, recursive=TRUE, full.names=TRUE, pattern='LULC_'))
+
+
+#################################### SSP5_85_2015_2100 #################################### 
+
+
+##### List of directories
+
+lista_SSP_5 <-list.dirs("./Results/SSP5_85_2015_2100/")
+
+## Stack all files
+
+stack_5_SSP <- stack(list.files(path=lista_SSP_5, recursive=TRUE, full.names=TRUE, pattern='LULC_'))
+
+#plot(stack_5_SSP)
+
+# Aplly mask  
+
+mascara_5_SSP <- mask(x = stack_5_SSP, mask = mascara)
+
+## Crop by mask
+
+SSP_5 <- crop(x = mascara_5_SSP, y = extent(mascara)) 
+
+## Get correct names
+
+c <- paste0(names(stack_5_SSP), ".tif")
+
+## Save raster in parental folder
+
+writeRaster(SSP_5, filename=c, bylayer=TRUE) 
+
+## Remove old file from subfolders
+
+file.remove(list.files(path=lista_SSP_5, recursive=TRUE, full.names=TRUE, pattern='LULC_'))
+
+
+
