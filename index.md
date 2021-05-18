@@ -6,10 +6,10 @@
 ## Introduction
 <p align="justify">The World Climate Research Programme (WCRP, https://www.wcrp-climate.org/) is the main organization that addresses questions related to the coupled climate system, providing many products of past, present, and future climatic and land cover global conditions. Several initiatives redistribute this data according to their needs and demands as Wordclim (https://www.worldclim.org/), Paleoclim (http://www.paleoclim.org/), Ecoclimate (https://www.ecoclimate.org/) and others. </p>
 
-As part of the WCRP, The Land use Harmonization Project (LUH2 https://luh.umd.edu/index.shtml) provide a dataset of harmonized set of land-use scenarios that smoothly connects the historical reconstructions of land-use with the future projections in the format required for Earth System Models (ESM). The data is global with a spatial resolution of ~ 50 km, cover years from 850-2300 including land-use states, transitions and mgt layers for several representative concentration paths (RCPs) and shared social-economic paths (SSP). For more detail about the data please see the REAMDE of the raw data (https://gsweb1vh2.umd.edu/LUH2/LUH2_v2f_README_v6.pdf) and  Hurtt et al. 2006, 2011,2020 and Popp et al 2017.
+<p align="justify">As part of the WCRP, The Land use Harmonization Project (LUH2 https://luh.umd.edu/index.shtml) provide a dataset of harmonized set of land-use scenarios that smoothly connects the historical reconstructions of land-use with the future projections in the format required for Earth System Models (ESM). The data is global with a spatial resolution of ~ 50 km, cover years from 850-2300 including land-use states, transitions and mgt layers for several representative concentration paths (RCPs) and shared social-economic paths (SSP). For more detail about the data please see the REAMDE of the raw data (https://gsweb1vh2.umd.edu/LUH2/LUH2_v2f_README_v6.pdf) and  Hurtt et al. 2006, 2011,2020 and Popp et al 2017. </p>
 
 
-Here I managed the LUH2 data from years 850 to 2100 for the latest version of the model earth system, called CMIP6 (Coupled Model Intercomparison Project Phase 6). I built R scripts to extract the "States" from NetCDF files and convert them as a Tagged Image Format File (.tif extension) that is commonly input for ecological and biogeographic analysis. I also create a new categorical data that is a land use land cover (LULC) based on twelve raw states, this LULC is important data for several spatial analysis as post-processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate them (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020).
+<p align="justify">Here I managed the LUH2 data from years 850 to 2100 for the latest version of the model earth system, called CMIP6 (Coupled Model Intercomparison Project Phase 6). I built R scripts to extract the "States" from NetCDF files and convert them as a Tagged Image Format File (.tif extension) that is commonly input for ecological and biogeographic analysis. I also create a new categorical data that is a land use land cover (LULC) based on twelve raw states, this LULC is important data for several spatial analysis as post-processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate them (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020). </p>
 
 ## Methods
 
@@ -42,7 +42,7 @@ The workflow has 4 steps, as follow:
 
 
 ## Results
-Total of 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster (Fig.1). Other 1338 files are new data created by the combination of 12 original states, which are categorical data (Fig 2). <br />
+<p align="justify">Total of 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster (Fig.1). Other 1338 files are new data created by the combination of 12 original states, which are categorical data (Fig 2).</p> <br />
 
 <img style="float: right;" src="https://user-images.githubusercontent.com/11633554/116018875-5d9e9800-a619-11eb-858f-05daa50d0cdc.png" width="630"><br /><br />
 
@@ -58,24 +58,24 @@ Figure 3. Comparison of LULC files. States on the X axis per hectare on the y ax
 
 
 ## Acknowledgment
-This initiative was only possible because the high-quality data is maintained and made publicly available by Land-Use Harmonization (https://luh.umd.edu/).
-This study was developed in the context of the Brazilian Network on Global Climate Change Research (Rede CLIMA) and the National Institute for Science and Technology in Ecology, Evolution and Conservation of Biodiversity (INCT EECBio,  CNPq Grant n 465610|2014-5, FAPEG 201810267000023) and Coordination for the Improvement of Higher Education Personnel (CAPES - Grant No. 88887.373031/2019-00)
+<p align="justify">This initiative was only possible because the high-quality data is maintained and made publicly available by Land-Use Harmonization (https://luh.umd.edu/).
+This study was developed in the context of the Brazilian Network on Global Climate Change Research (Rede CLIMA) and the National Institute for Science and Technology in Ecology, Evolution and Conservation of Biodiversity (INCT EECBio,  CNPq Grant n 465610|2014-5, FAPEG 201810267000023) and Coordination for the Improvement of Higher Education Personnel (CAPES - Grant No. 88887.373031/2019-00).  </p>
 
 ## References 
 
-Hanna, D. E., Raudsepp‐Hearne, C., & Bennett, E. M. (2020). Effects of land use, cover, and protection on stream and riparian ecosystem services and biodiversity. Conservation Biology, 34(1), 244-255.
+<p align="justify">Hanna, D. E., Raudsepp‐Hearne, C., & Bennett, E. M. (2020). Effects of land use, cover, and protection on stream and riparian ecosystem services and biodiversity. Conservation Biology, 34(1), 244-255. </p>
 
-Hurtt, G. C., Frolking, S., Fearon, M. G., Moore, B., Shevliakova, E., Malyshev, S., ... & Houghton, R. A. (2006). The underpinnings of land‐use history: Three centuries of global gridded land‐use transitions, wood‐harvest activity, and resulting secondary lands. Global Change Biology, 12(7), 1208-1229.
+<p align="justify">Hurtt, G. C., Frolking, S., Fearon, M. G., Moore, B., Shevliakova, E., Malyshev, S., ... & Houghton, R. A. (2006). The underpinnings of land‐use history: Three centuries of global gridded land‐use transitions, wood‐harvest activity, and resulting secondary lands. Global Change Biology, 12(7), 1208-1229. </p>
 
-Hurtt, G. C., Chini, L. P., Frolking, S., Betts, R. A., Feddema, J., Fischer, G., ... & Jones, C. D. (2011). Harmonization of land-use scenarios for the period 1500–2100: 600 years of global gridded annual land-use transitions, wood harvest, and resulting secondary lands. Climatic change, 109(1-2), 117.
+<p align="justify">Hurtt, G. C., Chini, L. P., Frolking, S., Betts, R. A., Feddema, J., Fischer, G., ... & Jones, C. D. (2011). Harmonization of land-use scenarios for the period 1500–2100: 600 years of global gridded annual land-use transitions, wood harvest, and resulting secondary lands. Climatic change, 109(1-2), 117. </p>
 
-Hurtt, G. C., Chini, L., Sahajpal, R., Frolking, S., Bodirsky, B. L., Calvin, K., ... & Hasegawa, T. (2020). Harmonization of global land use change and management for the period 850–2100 (LUH2) for CMIP6. Geoscientific Model Development, 13(11), 5425-5464.
+<p align="justify">Hurtt, G. C., Chini, L., Sahajpal, R., Frolking, S., Bodirsky, B. L., Calvin, K., ... & Hasegawa, T. (2020). Harmonization of global land use change and management for the period 850–2100 (LUH2) for CMIP6. Geoscientific Model Development, 13(11), 5425-5464. </p>
 
-Falcucci, A., Maiorano, L., & Boitani, L. (2007). Changes in land-use/land-cover patterns in Italy and their implications for biodiversity conservation. Landscape ecology, 22(4), 617-631.
+<p align="justify">Falcucci, A., Maiorano, L., & Boitani, L. (2007). Changes in land-use/land-cover patterns in Italy and their implications for biodiversity conservation. Landscape ecology, 22(4), 617-631. </p>
 
-Popp, A., Calvin, K., Fujimori, S., Havlik, P., Humpenöder, F., Stehfest, E., ... & Hasegawa, T. (2017). Land-use futures in the shared socio-economic pathways. Global Environmental Change, 42, 331-345.
+<p align="justify">Popp, A., Calvin, K., Fujimori, S., Havlik, P., Humpenöder, F., Stehfest, E., ... & Hasegawa, T. (2017). Land-use futures in the shared socio-economic pathways. Global Environmental Change, 42, 331-345. </p>
 
-Torres, R., Gasparri, N. I., Blendinger, P. G., & Grau, H. R. (2014). Land-use and land-cover effects on regional biodiversity distribution in a subtropical dry forest: a hierarchical integrative multi-taxa study. Regional Environmental Change, 14(4), 1549-1561.
+<p align="justify">Torres, R., Gasparri, N. I., Blendinger, P. G., & Grau, H. R. (2014). Land-use and land-cover effects on regional biodiversity distribution in a subtropical dry forest: a hierarchical integrative multi-taxa study. Regional Environmental Change, 14(4), 1549-1561. </p>
 
 
 
