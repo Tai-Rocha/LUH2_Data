@@ -53,8 +53,8 @@ Figure 1. Maps of forested primary land states for 2020 and 2100 as originally p
 Figure 2. Land-use land-cover for 2020 and 2100 (LULC files). The maps are the result of a combination of the twelve land-use land-cover states of the Land-Use Harmonization dataset (LULC files) into a single file. States are represented in categorical format (state name).The data for 2100 is under a fossil-fueled development scenario (SSP5)<br /><br /><br />
 
 
-<img src="https://user-images.githubusercontent.com/11633554/115323856-3bab9e00-a15f-11eb-95ef-772cf0444f25.png" width="550">
-Figure 3. Comparison of LULC files. States on the X axis per hectare on the y axis where: a) comparison between SSP2 and SSP5 for 2020, in b) comparison between SSP2 and SSP5 for 2100, c) comparison between the years 2020 and 2100 for SSP2 and in d ) comparison between the years 2020 and 2100 for SSP5.<br /><br /><br />
+<img src="https://i.imgur.com/P9J0LSS.jpg" width="530"><br />
+Figure 3.  Land-use land cover comparison among years and scenarios. Data for the LULC-files for year 2020 and 2100 for the optimistic (SSP2, top) and pessimistic (SSP5, bottom) greenhouse gas scenarios, arranged in decreasing order of class area in 2020.<br /><br /><br />
 
 
 ## Acknowledgment
