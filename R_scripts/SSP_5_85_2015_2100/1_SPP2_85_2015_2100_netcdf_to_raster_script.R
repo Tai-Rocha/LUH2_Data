@@ -1,6 +1,7 @@
 ###########################################################################
 ## Time series extract from netCDF file of Land use Harmonization Project
 ## Author: Tainá Rocha
+## 4.02 R version
 ########################################################################### 
 
 #Librarys
