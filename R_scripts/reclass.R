@@ -1,6 +1,7 @@
 ##############################################################################
 ## Reclassifing LULC raster and FAO (reference map) for accuracy
 ## Author: Tainá Rocha
+## 4.02 R version
 ##############################################################################
 
 ############## Reclassificando raster
