@@ -2,6 +2,7 @@
 ## Generate Land-use Land-cover raster from 12 states of Land-use Harmonization Project
 ## To build this raster, for each pixel the higest value among 12 states is assumed. 
 ## Author script: Tainá Rocha
+## 4.02 R version
 ##########################################################################################
 
 ## Librarys
