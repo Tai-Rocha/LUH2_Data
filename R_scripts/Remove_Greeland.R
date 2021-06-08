@@ -2,6 +2,7 @@
 ## Remove Greenlan from LULc files
 ## Author: Tainá Rocha
 ## Date : 27/04/202
+## 4.02 R version
 ############################################
 
 library(raster)
