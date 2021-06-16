@@ -11,6 +11,18 @@ library(ncdf4)
 library(logr)
 library(rdtLite)
 
+## Provenance Collector
+prov.init(
+  prov.dir = "./",
+  overwrite = TRUE,
+  snapshot.size = 0,
+  hash.algorithm = "md5",
+  save.debug = FALSE)
+
+
+## Log collector
+log_open(file_name = "", logdir = TRUE, show_notes = TRUE, autolog = TRUE)
+
 ## Initial setting 
 # Get the coordinate reference system (CRS) for raster
 epsg <- make_EPSG() # call the list of epsg
@@ -39,6 +51,8 @@ varr <- states_45_SSP2$var[[1]]
 
 primf <- netcdf_extract(varr) 
 
+log_print(primf)
+
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
@@ -63,6 +77,9 @@ varr <- states_45_SSP2$var[[2]]  ## Take primn variable
 
 primn <- netcdf_extract(varr) 
 
+log_print(primn)
+
+
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
@@ -83,6 +100,8 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 varr <- states_45_SSP2$var[[3]]  ## Take secdf variable
 
 secdf <- netcdf_extract(varr) 
+
+log_print(secdf)
 
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
@@ -106,6 +125,8 @@ varr <- states_45_SSP2$var[[4]]  ## Take secdn variable
 
 secdn <- netcdf_extract(varr) 
 
+log_print(secdn)
+
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
@@ -126,6 +147,8 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 varr <- states_45_SSP2$var[[5]]  ## Take urban variable
 
 urban <- netcdf_extract(varr) 
+
+log_print(urban)
 
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
@@ -148,6 +171,8 @@ varr <- states_45_SSP2$var[[6]]  ## Take c3ann variable
 
 c3ann <- netcdf_extract(varr) 
 
+log_print(c3ann)
+
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
@@ -168,6 +193,8 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 varr <- states_45_SSP2$var[[7]]  ## Take c4ann variable
 
 c4ann <- netcdf_extract(varr) 
+
+log_print(c4ann)
 
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
@@ -191,6 +218,8 @@ varr <- states_45_SSP2$var[[8]]  ## Take c3per variable
 
 c3per <- netcdf_extract(varr) 
 
+log_print(c3per)
+
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
@@ -212,6 +241,8 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 varr <- states_45_SSP2$var[[9]]  ## Take c4per variable
 
 c4per <- netcdf_extract(varr) 
+
+log_print(c4per)
 
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
@@ -235,6 +266,8 @@ varr <- states_45_SSP2$var[[10]]  ## Take c3nfx variable
 
 c3nfx <- netcdf_extract(varr) 
 
+log_print(c3nfx)
+
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
@@ -256,6 +289,8 @@ dev.off(dev.list()["RStudioGD"]) ## remove all plots
 varr <- states_45_SSP2$var[[11]]  ## Take pastr variable
 
 pastr <- netcdf_extract(varr) 
+
+log_print(pastr)
 
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
@@ -279,6 +314,8 @@ varr <- states_45_SSP2$var[[12]]  ## Take range variable
 
 range <- netcdf_extract(varr) 
 
+log_print(range)
+
 # List Old names
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
@@ -295,3 +332,6 @@ rm(list=ls()) ## list all environment objects and remove
 
 dev.off(dev.list()["RStudioGD"]) ## remove all plots
 
+log_close()
+
+prov.quit()
