@@ -17,7 +17,7 @@ library(rgdal)
 #### FAO reclass
 ############# Criar uma matriz onde estarão os valores do pixel atual e o que serão substituídos
 
-FAO_matriz_reclass <-matrix(data=c(1,2,3,4,5,6,7,8,9,10,11,4,2,3,1,3,3,3,3,3,NA,NA),nrow=11,ncol=2)
+FAO_matriz_reclass <-matrix(data=c(1,2,3,4,5,6,7,8,9,10,11,4,2,3,1,3,3,1,3,3,NA,NA),nrow=11,ncol=2)
 
 
 ##Leitura e transformação em objeto do raster
