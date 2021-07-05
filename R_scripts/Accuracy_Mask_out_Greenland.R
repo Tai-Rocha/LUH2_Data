@@ -20,22 +20,33 @@ plot(Mask_Greenland) #plotando
 
 FAO <-raster("./data/FAO/FAO_reclassified.tif")
 
-LUH2 <-raster("./data/LUh2/LULC_2000_CMIP6_reclass.tif")
+LUH2 <-raster("./data/Accuracy/Reclassified/LULC_2000_CMIP6_reclass.tif")
 
 
 
 ### FAO Crop and Mask
 FAO_masked <- mask(x = FAO, mask = Mask_Greenland) #aplicando a máscara (shape) pela função mask do pacote raster 
-plot(FAO_masked) # plot 
+#plot(FAO_masked) # plot 
 
 FAO_extention <- crop(x = FAO_masked, y = extent(Mask_Greenland)) #agora corte por essa máscara
-plot(FAO_extention)
 
 ext <- extent(-180, 180, -90, 83)
 extent(FAO_extention) <- ext
 FAO_extention <- setExtent(FAO_extention, ext, keepres=TRUE)
 
-writeRaster(FAO_extention, "./data/Accuracy/Reclassified/FAO_reclass_final.tif", format="GTiff") ### Isto vai salvar no local em que estiver o projeto. Veja este local no canto superior  direito 
+plot(FAO_extention)
+
+## Reclassify again
+
+Matriz_FAO_2 <-matrix(data=c(0,1,2,3,4,NA,1,2,3,4),nrow=5,ncol=2)
+
+FAO_final <-reclassify(x = FAO_extention, #objeto raster
+                             rcl = Matriz_FAO_2, #matriz criada com os valores de origem e destino
+                             filename="FAO_reclassified") #nome do arquivo de output
+
+plot(FAO_final)
+
+writeRaster(FAO_final, "./data/Accuracy/Reclassified/FAO_reclass_final.tif", format="GTiff") ### Isto vai salvar no local em que estiver o projeto. Veja este local no canto superior  direito 
 
 
 ### LUH2 Crop and Mask
