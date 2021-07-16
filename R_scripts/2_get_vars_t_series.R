@@ -11,7 +11,7 @@ library(ncdf4)
 library(logr)
 library(rdtLite)
 
-## Provenance Collector
+## Provenance Collector (for reproducibility purposes)
 prov.init(
   prov.dir = "./",
   overwrite = TRUE,
@@ -20,7 +20,7 @@ prov.init(
   save.debug = FALSE)
 
 
-## Log collector
+## Log collector (for reproducibility purposes)
 log_open(file_name = "", logdir = TRUE, show_notes = TRUE, autolog = TRUE)
 
 ## Initial setting 
@@ -42,7 +42,7 @@ states_45_SSP2 <- nc_open("./data/raw_data/LUH2 v2f Release (12_21_17)/RCP4.5 SS
 # Get states
 ########################################################################################
 
-#Call variables, it's is deliminted by index, i.e "[[]]". The object must call "varr" for funtions works. 
+#Call variables.It's deliminted by index, i.e "[[]]". The object must call "varr" for funtions of 1_Funtions.R scritp works. 
 
 # primf
 varr <- states_45_SSP2$var[[1]]  
@@ -57,11 +57,11 @@ log_print(primf)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_primf_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -84,11 +84,11 @@ log_print(primn)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_primn_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -107,11 +107,11 @@ log_print(secdf)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_secdf_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -131,11 +131,11 @@ log_print(secdn)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_secdn_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -154,11 +154,11 @@ log_print(urban)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.s
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_urban_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -177,11 +177,11 @@ log_print(c3ann)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_c3ann_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -200,11 +200,11 @@ log_print(c4ann)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names. You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_c4ann_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -224,11 +224,11 @@ log_print(c3per)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_c3per_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -248,11 +248,11 @@ log_print(c4per)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_c4per_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -272,11 +272,11 @@ log_print(c3nfx)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_c3nfx_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -296,11 +296,11 @@ log_print(pastr)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_pastr_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files 
 new_fnames(old_files)
 
 ## Clean environment and plots
@@ -320,11 +320,11 @@ log_print(range)
 old_files <- list.files("./Results/SSP2_45_2015_2100/", pattern = "*.tif", full.names = TRUE)
 old_files
 
-# Create new names You need change this
+# Create new names. You need write the new name here.
 new_files <- paste0("./Results/SSP2_45_2015_2100/CMIP6_Land_Use_Harmonization_range_ssp2_45_",2015:2100,".tif")   
 new_files
 
-## Call new_fnames funtion . Rename files and then remove olds files 
+## Call new_fnames funtion, rename files and then remove olds files
 new_fnames(old_files)
 
 ## Clean environment and plots
