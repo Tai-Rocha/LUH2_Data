@@ -1,5 +1,4 @@
 ## Global land-use and land-cover (LULC) data under historical, current, and future climatic conditions.
-
 ###  This data paper is in the preprint version at [bioRxiv](https://www.biorxiv.org/content/10.1101/2021.05.06.442941v3) and under review. The complete product will freely available at ecoClime database (https://www.ecoclimate.org/)  as soon as possible.
 
 ### [Webpage](https://tai-rocha.github.io/LUH2_Data/) of this repo .
