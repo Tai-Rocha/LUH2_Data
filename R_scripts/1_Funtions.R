@@ -1,6 +1,6 @@
 ##########################################################################
 ## Funtions to extract time-series variables from netCDF file
-## And to rename files from old rasw names to bew names
+## And to rename files from old raw names to new names
 ##########################################################################
 
 #Library

@@ -9,7 +9,6 @@
 #Library
 
 library(raster)
-library(rJava)
 library(rgeos)
 library(rgdal)
 
@@ -17,26 +16,26 @@ library(rgdal)
 #### FAO reclass
 ############# Criar uma matriz onde estarão os valores do pixel atual e o que serão substituídos
 
-FAO_matriz_reclass <-matrix(data=c(1,2,3,4,5,6,7,8,9,10,11,4,2,3,1,3,3,3,3,3,NA,NA),nrow=11,ncol=2)
+FAO_matriz_reclass <-matrix(data=c(1,2,3,4,5,6,7,8,9,10,11,4,2,3,1,3,3,1,3,3,NA,NA),nrow=11,ncol=2)
 
 
 ##Leitura e transformação em objeto do raster
 
 raster_FAO <-raster("./data/FAO/GlcShare_v10_Dominant/glc_shv10_DOM.Tif")
-plot(raster_FAO)
+#plot(raster_FAO)
 
 as.factor(raster_FAO)
 ##Reclassificando o objeto raster
 
 raster_reclass_2<-reclassify(x = raster_FAO, #objeto raster
                              rcl = FAO_matriz_reclass, #matriz criada com os valores de origem e destino
-                             filename="FAO_reclassified7") #nome do arquivo de output
+                             filename="FAO_reclassified") #nome do arquivo de output
 
 plot(raster_reclass_2)
 
 ##salvando o novo raster reclassificado
 as.factor(raster_reclass_2)
-plot(raster_reclass_2)
+#plot(raster_reclass_2)
 writeRaster(raster_reclass_2,"./data/FAO/FAO_reclassified.tif")
 
 
@@ -59,9 +58,8 @@ plot(raster_2000)
 ##Reclassificando o objeto raster
 
 raster_2000_reclass <-reclassify(x = raster_2000, #objeto raster
-                           rcl = matriz_2000_reclass, #matriz criada com os valores de origem e destino
-                           filename="2000_reclass") #nome do arquivo de output
-
+                                 rcl = matriz_2000_reclass, #matriz criada com os valores de origem e destino
+                                 filename="2000_reclass") #nome do arquivo de output
 
 ##salvando o novo raster reclassificado
 writeRaster(raster_2000_reclass,"./data/Accuracy/Reclassified/LULC_2000_CMIP6_reclass.tif")
@@ -132,6 +130,3 @@ raster_2015_reclass <-reclassify(x = raster_2015, #objeto raster
 ##salvando o novo raster reclassificado
 writeRaster(raster_2015_reclass,"./data/Accuracy/Reclassified/LULC_2015_CMIP6_reclass.tif")
 plot(raster_2015_reclass)
-
-
-
