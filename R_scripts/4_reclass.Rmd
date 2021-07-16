@@ -1,0 +1,97 @@
+## Reclassifing LULC raster and FAO (reference map) for accuracy
+#### Author: Tainá Rocha
+###### 4.02 R version
+
+
+Library
+```{r}
+library(raster)
+library(rgeos)
+library(rgdal)
+```
+
+## GLC-SHARE reclassification
+
+| Original class code  | Original GCL-SHARE class names                      | Code(names) after reclassification |
+|----------------------|-----------------------------------------------------|------------------------------------|
+| 1                    | Artificial surfaces                                 | 4 (urban)                          |
+| 2                    | Cropland                                            | 2 (crops)                          |
+| 3                    | Grassland                                           | 3 (open areas)                     |
+| 4                    | Tree covered areas                                  | 1 (forest)                         |
+| 5                    | Shrubs covered areas                                | 3 (open areas)                     |
+| 6                    | Herbaceous vegetation, aquatic or regularly flooded | 3 (open areas)                     |
+| 7                    | Mangroves                                           | 1 (forest)                         |
+| 8                    | Sparse vegetation                                   | 3 (open areas)                     |
+| 9                    | Bare soil                                           | 3 (open areas)                     |
+| 10                   | Snow and glaciers                                   | masked-out                         |
+| 11                   | Water bodies                                        | masked-out                         |
+
+
+Create a matrix where the current pixel values will be replaced by new values
+
+```{r}
+FAO_matriz_reclass <-matrix(data=c(1,2,3,4,5,6,7,8,9,10,11,4,2,3,1,3,3,1,3,3,NA,NA),nrow=11,ncol=2)
+```
+
+Load reference map
+```{r}
+raster_FAO <-raster("./data/FAO/GlcShare_v10_Dominant/glc_shv10_DOM.Tif")
+as.factor(raster_FAO)
+plot(raster_FAO)
+```
+
+Reclassification 
+
+```{r}
+raster_reclass_2<-reclassify(x = raster_FAO, #objeto raster
+                             rcl = FAO_matriz_reclass, #matriz criada com os valores de origem e destino
+                             filename="FAO_reclassified") #nome do arquivo de output
+
+## Plot and Save
+as.factor(raster_reclass_2)
+plot(raster_reclass_2)
+writeRaster(raster_reclass_2,"./data/FAO/FAO_reclassified.tif")
+```
+
+## LUH2 reclassification
+
+| Original class code | Original  LUH2 class names                      | Code(names) after reclassification |
+|---------------------|-------------------------------------------------|------------------------------------|
+| 1                   | C3 Annual Crops (c3ann)                         | 2 (crops)                          |
+| 2                   | C3 Nitrogen-Fixing Crops (c3nfx)                | 2 (crops)                          |
+| 3                   | C3 Perennial Crops (c3per)                      | 2 (crops)                          |
+| 4                   | C4 Annual Crops (c4ann)                         | 2 (crops)                          |
+| 5                   | C4 Perennial Crops (c4per)                      | 2 (crops)                          |
+| 6                   | Managed Pasture (pastr)                         | 3 (open areas)                     |
+| 7                   | Forested Primary Land (primnf)                  | 1 (forest)                         |
+| 8                   | Non-Forested Primary Land (primn)               | 3 (open areas)                     |
+| 9                   | Rangeland (range)                               | 3 (open areas)                     |
+| 10                  | Potentially  Forested Secondary Land (secdf)    | 1 (forest)                         |
+| 11                  | Potentially Non-Forested Secondary Land (secdn) | 3 (open areas)                     |
+| 12                  | Urban Land (urban)                              | 4 (urban)                          |
+
+Create a matrix where the current pixel values will be replaced by new values
+```{r}
+matriz_2000_reclass<-matrix(data=c(1,2,3,4,5,6,7,8,9,10,11,12,2,2,2,2,2,3,1,3,3,1,3,4),nrow=12,ncol=2)
+```
+
+Load LUH2 map
+
+```{r}
+raster_2000 <-raster("./data/Accuracy/LULC_2000_CMPI_accucary_input.tif")
+plot(raster_2000)
+```
+
+Reclassification
+
+```{r}
+raster_2000_reclass <-reclassify(x = raster_2000, #objeto raster
+                                 rcl = matriz_2000_reclass, #matriz criada com os valores de origem e destino
+                                 filename="2000_reclass") #nome do arquivo de output
+
+## Save ad plot
+writeRaster(raster_2000_reclass,"./data/Accuracy/Reclassified/LULC_2000_CMIP6_reclass.tif")
+plot(raster_2000_reclass)
+```
+
+## End
