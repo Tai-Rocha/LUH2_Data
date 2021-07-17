@@ -2,6 +2,7 @@
 ## Land-use Land-cover (LULC-files)
 ## To build this raster, we assumed the highest value among 12 states given a pixel (and so on for other pixels)  
 ## Author script: Tainá Rocha
+## R version 4.0.2
 #################################################################################################################
 
 ## Librarys
