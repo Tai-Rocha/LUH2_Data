@@ -1,9 +1,9 @@
-##########################################################################################
-## Generate Land-use Land-cover raster from 12 states of Land-use Harmonization Project
-## To build this raster, for each pixel the higest value among 12 states is assumed. 
+#################################################################################################################
+## Land-use Land-cover (LULC-files)
+## To build this raster, we assumed the highest value among 12 states given a pixel (and so on for other pixels)  
 ## Author script: Tainá Rocha
-## 4.02 R version
-##########################################################################################
+## R version 4.0.2
+#################################################################################################################
 
 ## Librarys
 
