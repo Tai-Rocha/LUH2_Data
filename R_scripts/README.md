@@ -6,4 +6,4 @@
 - 4- Execute the ``4_Accuracy_Mask_out_Greenland.R`` script to remove Greeland from reference map GLC-SHARE and LUH2
 - 5- Execute the ``5_reclass.R script`` to reclassify reference map GLC-SHARE and LUH2
 - 6- Execute the ``6_Remove_Greeland.R`` script to remove Greeland for all layers
-- 7- Execute the ``7_SSPscompare.R`` script to build plots of scenarios comparison. [Input here](https://github.com/Tai-Rocha/LUH2_Data/tree/master/ssp_data_results)
+- 7- Execute the ``7_SSPscompare.R`` script to build plots of scenarios comparison. [Input here](https://github.com/Tai-Rocha/LUH2_Data/raw/master/data/ssp_data_results/Fig4_data%26graficcs.xlsx)
