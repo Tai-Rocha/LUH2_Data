@@ -1,5 +1,6 @@
 ### Global land-use and land-cover (LULC) data under historical, current, and future climatic conditions.  
 #### The complete product will freely available at ecoClime database (https://www.ecoclimate.org/)  as soon as possible.
+#### For a while, the data is available at [google drive link](https://drive.google.com/drive/folders/1CTax7OVdFPwnOcv_v36bF-cO7V-RZmwq?usp=sharing)
 
 ### [Webpage](https://tai-rocha.github.io/LUH2_Data/) of this repo .
 
