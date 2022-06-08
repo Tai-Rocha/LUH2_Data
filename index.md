@@ -1,6 +1,6 @@
 
 ### Global land-use and land-cover (LULC) data under historical, current, and future climatic conditions.  
-#### Datasety available at zenodo (https://zenodo.org/record/6570919#.YqEFN9LMLiF)
+#### Dataset available at zenodo (https://zenodo.org/record/6570919#.YqEFN9LMLiF)
 
 
 ## Introduction
