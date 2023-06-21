@@ -3,15 +3,12 @@
 #### Dataset available at zenodo (https://zenodo.org/record/6570919#.YqEFN9LMLiF)
 
 
-## Introduction
 <p align="justify">Changes in land cover derived from human-mediated land use changes, particularly conversion of native vegetation to agriculture, is still among the greatest threats to biodiversity (Maxwell et al. 2016). Mapping land-use land-cover (LULC) changes through time is, therefore, important and desirable to predict these threats and propose effective conservation policies (Jetz et al. 2007). LULC is also an important predictor of species’ occurrence and, thus extensively used in ecological studies (Eyringet al. 2016; Ruiz-Benito et al. 2020; Sobral-Souza et al. 2021). </p>
 
 <p align="justify">As part of the WCRP, The Land use Harmonization Project (LUH2 https://luh.umd.edu/index.shtml) provide a dataset of harmonized set of land-use scenarios that smoothly connects the historical reconstructions of land-use with the future projections in the format required for Earth System Models (ESM). The data is global with a spatial resolution of ~ 50 km, cover years from 850-2300 including land-use states, transitions and mgt layers for several representative concentration paths (RCPs) and shared social-economic paths (SSP). For more detail about the data please see the REAMDE of the raw data (https://gsweb1vh2.umd.edu/LUH2/LUH2_v2f_README_v6.pdf) and  Hurtt et al. 2006, 2011,2020 and Popp et al 2017.Currently, CMIP datasets are available in NetCDF format, a quite complex file format for most ecologists. This CMIP LULC has rarely been used in ecological studies, as opposed to CMIP’s climate data already simplified for ecologists on standard GIS formats in widely used datasets such as WorldClim (https://www.worldclim.org/, Fick and Hijmans 2017) and ecoClimate (https://www.ecoclimate.org/, Lima-Ribeiro et al. 2015). </p>
 
 
 <p align="justify">Here I managed the LUH2 data from years 850 to 2100 for the latest version of the model earth system, called CMIP6 (Coupled Model Intercomparison Project Phase 6). I built R scripts to extract the "States" from NetCDF files and convert them as a Tagged Image Format File (.tif extension) that is commonly input for ecological and biogeographic analysis. I also create a new categorical data that is a land use land cover (LULC) based on twelve raw states, this LULC is important data for several spatial analysis as post-processing for species distribution models (or ecological niche models), conservation plans and many others in which it's important to incorporate them (Torres et al 2014, Falcucci et al 2017, Hanna et al 2020). </p>
-
-## Methods
 
 The workflow has 4 steps, as follow: 
 
@@ -41,7 +38,7 @@ The workflow has 4 steps, as follow:
 
 
 
-## Results
+## Main Results
 <p align="justify">Total of 17394 files, of which 16.056 are original states of LUH2 in tiff format. These are continuous raster (Fig.1). Other 1338 files are new data created by the combination of 12 original states, which are categorical data (Fig 2).</p> <br />
 
 <img style="float: right;" src="https://user-images.githubusercontent.com/11633554/116018875-5d9e9800-a619-11eb-858f-05daa50d0cdc.png" width="630"><br /><br />
